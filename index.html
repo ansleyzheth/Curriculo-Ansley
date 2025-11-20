@@ -306,6 +306,51 @@
       box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
     }
     
+    /* Nova seção - Entendendo as Funções */
+    .roles-comparison {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .roles-image {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .roles-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .role-explanation {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--neon);
+    }
+    
+    .role-explanation h3 {
+      margin-top: 0;
+      color: var(--neon);
+      font-size: 1.3rem;
+    }
+    
+    .analogy-box {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 25px;
+    }
+    
+    .analogy-box h4 {
+      margin-top: 0;
+      color: #3b82f6;
+      font-size: 1.1rem;
+    }
+    
     /* Animações */
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -666,8 +711,69 @@ Prestava suporte técnico presencial, garantindo o funcionamento adequado dos eq
       <p>Formação em língua inglesa com desenvolvimento das quatro habilidades linguísticas: listening, speaking, reading e writing.</p>
     </section>
 
+    <!-- NOVA SEÇÃO ADICIONADA AQUI -->
+    <section id="entendendo-funcoes">
+      <h2>Entendendo as Funções em TI</h2>
+      <div class="roles-comparison">
+        <div class="roles-image">
+          <img src="Cloud-Engineer-vs-DevOps-Engineer.jpg" alt="Cloud Engineer vs DevOps Engineer">
+        </div>
+        
+        <div class="role-explanation">
+          <h3>Quem é um Engenheiro DevOps?</h3>
+          <p>Um Engenheiro DevOps é alguém que garante que o software seja construído, testado e entregue de forma suave e sem estresse. Pense no Engenheiro DevOps como a pessoa que garante que:</p>
+          <ul>
+            <li>Desenvolvedores escrevem código facilmente</li>
+            <li>O código é testado automaticamente</li>
+            <li>O aplicativo é implantado sem tempo de inatividade</li>
+            <li>Tudo continua funcionando adequadamente</li>
+          </ul>
+          <p>Eles se concentram em automação, velocidade e confiabilidade. Se os desenvolvedores são os que cozinham a comida, o Engenheiro DevOps é a pessoa que garante que a cozinha esteja organizada, limpa e tudo esteja funcionando com eficiência para que a comida saia rapidamente e perfeitamente toda vez.</p>
+        </div>
+        
+        <div class="role-explanation">
+          <h3>Quem é um Engenheiro de Cloud?</h3>
+          <p>Um Engenheiro de Cloud é a pessoa que constrói e gerencia a "casa" online onde seus aplicativos vivem. Antigamente, as empresas armazenavam seus aplicativos em servidores físicos. Agora, quase tudo é executado em plataformas de nuvem como AWS, Azure ou GCP.</p>
+          <p>Engenheiros de Cloud lidam com coisas como:</p>
+          <ul>
+            <li>Configuração de servidores na nuvem</li>
+            <li>Gerenciamento de bancos de dados</li>
+            <li>Configuração de rede</li>
+            <li>Proteção da infraestrutura</li>
+            <li>Garantir que o aplicativo possa escalar quando mais pessoas o usarem</li>
+          </ul>
+          <p>Eles são basicamente os "proprietários" da internet, garantindo que o "edifício" (onde seu aplicativo vive) seja seguro, rápido, sempre online e possa crescer a qualquer momento.</p>
+        </div>
+        
+        <div class="role-explanation">
+          <h3>Então DevOps e Engenharia de Cloud, qual é a diferença?</h3>
+          <p>Aqui está a maneira mais simples de entender:</p>
+          <ul>
+            <li><strong>Cloud</strong> = Onde o aplicativo é executado</li>
+            <li><strong>DevOps</strong> = Como o aplicativo se move do desenvolvimento para a produção</li>
+          </ul>
+          <p>Eles trabalham em conjunto, mas o foco é diferente.</p>
+        </div>
+        
+        <div class="role-explanation">
+          <h3>E sobre Engenheiros de Software?</h3>
+          <p>Um Engenheiro de Software é aquele que realmente escreve o código para o aplicativo. Eles constroem os recursos que as pessoas usam, como páginas de login, sistemas de pagamento, painéis, etc.</p>
+        </div>
+        
+        <div class="analogy-box">
+          <h4>Analogia com Restaurante:</h4>
+          <ul>
+            <li><strong>Engenheiro de Software</strong> → cozinha a comida</li>
+            <li><strong>Engenheiro DevOps</strong> → organiza a cozinha para que a comida possa ser cozinhada mais rápido</li>
+            <li><strong>Engenheiro de Cloud</strong> → é dono do edifício e garante que energia, água e segurança funcionem perfeitamente</li>
+          </ul>
+          <p>Todos os três papéis são diferentes, mas se unem para entregar um produto completo.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="download">
-      <h2>Download do Currículo</h2>
+      <h2>Download do Currículo Ansley em PDF</h2>
       <a href="Curriculo_Ansley_Donizeti_Gonçalves.pdf" download>⬇️ Baixar Currículo em PDF</a>
     </section>
   </main>
