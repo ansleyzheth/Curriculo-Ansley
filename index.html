@@ -135,34 +135,6 @@
       transform: scale(1.15);
     }
     
-    /* Animações */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    @keyframes slideUp {
-      from { 
-        opacity: 0; 
-        transform: translateY(30px);
-      }
-      to { 
-        opacity: 1; 
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes zoomIn {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-    
     /* Timeline */
     .timeline {
       border-left: 3px solid var(--accent);
@@ -196,6 +168,31 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     }
     
+    .company-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-right: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .company-logo:hover {
+      transform: scale(1.1);
+    }
+    
+    .company-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .company-header h3 {
+      margin: 0;
+      flex: 1;
+    }
+    
     /* Botão de download */
     #download a {
       background: linear-gradient(45deg, #22c55e, #3b82f6);
@@ -214,6 +211,34 @@
       box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
     }
     
+    /* Animações */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
     /* Responsividade */
     @media (max-width: 768px) {
       h1 {
@@ -230,6 +255,16 @@
       
       .tools img {
         width: 50px;
+      }
+      
+      .company-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .company-logo {
+        margin-right: 0;
+        margin-bottom: 10px;
       }
     }
   </style>
@@ -301,37 +336,82 @@
       <h2>Experiência Profissional (Timeline)</h2>
       <div class="timeline">
         <div class="card-exp">
-          <h3>📌 Aliare — Analista de Configuração (fev/2023 – atual)</h3>
+          <div class="company-header">
+            <a href="https://www.aliare.co/" target="_blank">
+              <img src="Aliare-Logo.jpg" alt="Aliare" class="company-logo">
+            </a>
+            <h3>Aliare — Analista de Configuração (fev/2023 – atual)</h3>
+          </div>
           <p>Gerenciamento de servidores em cluster, containers, observabilidade e automação.</p>
         </div>
 
         <div class="card-exp">
-          <h3>📌 O2B — Analista Cloud Júnior (abr/2020 – out/2022)</h3>
+          <div class="company-header">
+            <a href="https://securityfirst.com.br/" target="_blank">
+              <img src="Securityfirst-Logo.jpg" alt="Security First" class="company-logo">
+            </a>
+            <h3>Security First — Analista Cloud Junior (set/2022 – fev/2023)</h3>
+          </div>
+          <p>Atuação como SRE em ambientes cloud, automação e monitoramento.</p>
+        </div>
+
+        <div class="card-exp">
+          <div class="company-header">
+            <a href="https://o2b.com.br/" target="_blank">
+              <img src="O2B-Logo.jpg" alt="O2B" class="company-logo">
+            </a>
+            <h3>O2B — Analista Cloud Júnior (abr/2020 – set/2022)</h3>
+          </div>
           <p>Atuação como SRE em ambientes cloud AWS/GCP, automação e monitoramento.</p>
         </div>
 
         <div class="card-exp">
-          <h3>📌 Enjin Honda Automóveis — Gerente de TI (ago/2019 – mar/2020)</h3>
+          <div class="company-header">
+            <a href="https://enjin.com.br/" target="_blank">
+              <img src="Enjin-Honda-Logo.png" alt="Enjin Honda" class="company-logo">
+            </a>
+            <h3>Enjin Honda Automóveis — Gerente de TI (ago/2019 – mar/2020)</h3>
+          </div>
           <p>Gestão de TI, suporte técnico e infraestrutura.</p>
         </div>
 
         <div class="card-exp">
-          <h3>📌 BRASCLOUD — Administrativo de Sistemas I (mai/2019 – ago/2019)</h3>
+          <div class="company-header">
+            <a href="https://www.brascloud.com.br/pt-br" target="_blank">
+              <img src="Brascloud-Logo.jpg" alt="BRASCLOUD" class="company-logo">
+            </a>
+            <h3>BRASCLOUD — Administrativo de Sistemas I (mai/2019 – ago/2019)</h3>
+          </div>
           <p>Administração de sistemas e suporte.</p>
         </div>
 
         <div class="card-exp">
-          <h3>📌 Zeni Motors — Assistente de TI (jul/2017 – abr/2019)</h3>
+          <div class="company-header">
+            <a href="https://zenimotors.com/" target="_blank">
+              <img src="Zeni-Motors-Logo.png" alt="Zeni Motors" class="company-logo">
+            </a>
+            <h3>Zeni Motors — Assistente de TI (jul/2017 – abr/2019)</h3>
+          </div>
           <p>Suporte técnico e manutenção.</p>
         </div>
 
         <div class="card-exp">
-          <h3>📌 Copyvic — Auxiliar Técnico (out/2015 – jun/2016)</h3>
+          <div class="company-header">
+            <a href="https://copyvic.com.br/" target="_blank">
+              <img src="Copyvic-Logo.jpg" alt="Copyvic" class="company-logo">
+            </a>
+            <h3>Copyvic — Auxiliar Técnico (out/2015 – jun/2016)</h3>
+          </div>
           <p>Manutenção de copiadoras e suporte básico.</p>
         </div>
 
         <div class="card-exp">
-          <h3>📌 Mascarello Ônibus — Analista de Suporte (abr/2015 – jul/2015)</h3>
+          <div class="company-header">
+            <a href="https://mascarello.com.br/" target="_blank">
+              <img src="Mascarello-Logo.jpg" alt="Mascarello" class="company-logo">
+            </a>
+            <h3>Mascarello Ônibus — Analista de Suporte (abr/2015 – jul/2015)</h3>
+          </div>
           <p>Suporte técnico e manutenção de equipamentos.</p>
         </div>
       </div>
