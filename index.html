@@ -176,6 +176,12 @@
       margin-top: 20px;
     }
     
+    .tool-item {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+    
     .tools img {
       width: 65px;
       transition: transform 0.3s;
@@ -183,6 +189,51 @@
     
     .tools img:hover {
       transform: scale(1.15);
+    }
+    
+    /* Tooltip Styles */
+    .tooltip {
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      width: 220px;
+      text-align: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+    
+    .tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: rgba(0, 0, 0, 0.9);
+    }
+    
+    .tool-item:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(-5px);
+    }
+    
+    .tooltip strong {
+      color: var(--neon);
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.9rem;
     }
     
     /* Timeline */
@@ -481,6 +532,11 @@
         width: 50px;
       }
       
+      .tooltip {
+        width: 180px;
+        font-size: 0.8rem;
+      }
+      
       .company-header {
         flex-direction: column;
         align-items: flex-start;
@@ -578,21 +634,95 @@
       monitoramento inteligente e colaboração com equipes de desenvolvimento. Meu foco é ajudar o time a construir 
       ambientes mais estáveis, seguros e eficientes, garantindo disponibilidade e apoiando na evolução contínua da plataforma.
     </p>
+    <section id="download">
+      <h2>Download do Currículo</h2>
+      <a href="Curriculo_Ansley_Donizeti_Gonçalves.pdf" download>⬇️ Baixar Currículo em PDF</a>
+    </section>
+    
   </section>
 
     <section>
       <h2>Ferramentas</h2>
       <div class="tools">
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" />
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" />
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" />
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana" />
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" />
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" />
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" />
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" />
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" />
+        <div class="tool-item">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" />
+          <div class="tooltip">
+            <strong>Docker e Docker Compose</strong>
+            Containerização e ambientes reprodutíveis
+          </div>
+        </div>
+        
+        <div class="tool-item">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" />
+          <div class="tooltip">
+            <strong>Linux</strong>
+            Administração de servidores e automação avançada
+          </div>
+        </div>
+        
+        <div class="tool-item">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" />
+          <div class="tooltip">
+            <strong>Azure</strong>
+            Operação de serviços cloud Microsoft
+          </div>
+        </div>
+        
+        <div class="tool-item">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana" />
+          <div class="tooltip">
+            <strong>Grafana</strong>
+            Dashboards e visualização de métricas
+          </div>
+        </div>
+        
+        <div class="tool-item">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" />
+          <div class="tooltip">
+            <strong>Jenkins</strong>
+            Pipelines CI/CD e automação de deployments
+          </div>
+        </div>
+        
+        <div class="tool-item">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" />
+          <div class="tooltip">
+            <strong>Git e GitHub</strong>
+            Versionamento, branches, pull requests e colaboração
+          </div>
+        </div>
+        
+        <div class="tool-item">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" />
+          <div class="tooltip">
+            <strong>Kubernetes</strong>
+            Orquestração de containers e escalabilidade
+          </div>
+        </div>
+        
+        <div class="tool-item">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+          <div class="tooltip">
+            <strong>PostgreSQL</strong>
+            Administração, tuning e operação de bancos
+          </div>
+        </div>
+        
+        <div class="tool-item">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" />
+          <div class="tooltip">
+            <strong>AWS</strong>
+            Operação multi-cloud e serviços Amazon
+          </div>
+        </div>
+        
+        <div class="tool-item">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" />
+          <div class="tooltip">
+            <strong>Google Cloud</strong>
+            Operação multi-cloud e serviços Google
+          </div>
+        </div>
       </div>
     </section>
 
@@ -891,10 +1021,7 @@ Prestava suporte técnico presencial, garantindo o funcionamento adequado dos eq
       <p>Formação em língua inglesa com desenvolvimento das quatro habilidades linguísticas: listening, speaking, reading e writing.</p>
     </section>
 
-    <section id="download">
-      <h2>Download do Currículo</h2>
-      <a href="Curriculo_Ansley_Donizeti_Gonçalves.pdf" download>⬇️ Baixar Currículo em PDF</a>
-    </section>
+
   </main>
 
 </body>
