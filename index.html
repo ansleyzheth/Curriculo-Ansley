@@ -66,6 +66,46 @@
       opacity: 0.9;
     }
     
+    /* Language Selector */
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+    
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .lang-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    
+    .lang-flag {
+      width: 16px;
+      height: 12px;
+      border-radius: 2px;
+    }
+    
     .contact-links {
       display: flex;
       justify-content: center;
@@ -565,6 +605,15 @@
       .roles-grid {
         grid-template-columns: 1fr;
       }
+      
+      .language-selector {
+        position: relative;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      
       .photo-container a {
         display: inline-block;
         transition: transform 0.3s ease;
@@ -599,174 +648,184 @@
 <body>
   
   <header>
-  <div class="photo-container">
-    <a href="https://www.linkedin.com/in/ansley-donizeti-gon%C3%A7alves/" target="_blank">
-      <img src="Ansley.jpg" alt="Ansley" />
-    </a>
-  </div>
-  <h1>Ansley Donizeti Gonçalves</h1>
-  <h2>Site Reliability Engineer (SRE) / Cloud Engineer</h2>
-  <p>Infraestrutura Física e Cloud • Automação • Observabilidade • Versionamento • Orquestração de Containers</p>
+    <!-- Language Selector -->
+    <div class="language-selector">
+      <button class="lang-btn active" data-lang="pt">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAyMCI+PHJlY3QgZmlsbD0iIzAwN2EzZCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1IDQuMTJMMTcuNjUgOC41SDI2LjVMMjEuNzUgMTEuODhMMjQuNDUgMTYuMjZMMTUgMTIuNzJaIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1IDE1Ljg4TDEyLjM1IDExLjVIMy41TDguMjUgOC4xMkw1LjU1IDMuNzRMMTUgNy4yOFoiLz48L3N2Zz4=" class="lang-flag" alt="PT">
+        PT
+      </button>
+      <button class="lang-btn" data-lang="en">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAyMCI+PHJlY3QgZmlsbD0iIzAyNDdhNCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMEgxM1Y4LjZIMzBWMEgxM1oiLz48cGF0aCBmaWxsPSIjYzYwMDI3IiBkPSJNMTMgMTEuNEgzMFYyMEgxM1YxMS40WiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDExLjRIMTNWMjBIMFYxMS40WiIvPjxwYXRoIGZpbGw9IiNjNjAwMjciIGQ9Ik0wIDBIMTNWOC42SDBWMFoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNi41IDBIMy4yVjMuM0gwVjYuNkgzLjJWMjBINi41VjYuNkgxMFYzLjNINi41VjBaIi8+PC9zdmc+" class="lang-flag" alt="EN">
+        EN
+      </button>
+    </div>
     
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/ansley-donizeti-gon%C3%A7alves/" target="_blank" class="contact-link linkedin-link">
-        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-        <span class="contact-text">LinkedIn</span>
-        <span class="contact-detail">/ansley-donizeti</span>
-      </a>
-      
-<a href="https://contate.me/5545998353552" target="_blank" class="contact-link whatsapp-link">
-  <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.262-6.209-3.553-8.482"/>
-  </svg>
-  <span class="contact-text">WhatsApp</span>
-  <span class="contact-detail">+55 45 99835-3552</span>
-</a>
-      
-      <a href="mailto:ansley_dg@hotmail.com" class="contact-link email-link">
-        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-        <span class="contact-text">Email</span>
-        <span class="contact-detail">ansley_dg@hotmail.com</span>
+    <div class="photo-container">
+      <a href="https://www.linkedin.com/in/ansley-donizeti-gon%C3%A7alves/" target="_blank">
+        <img src="Ansley.jpg" alt="Ansley" />
       </a>
     </div>
-  </header>
+    <h1>Ansley Donizeti Gonçalves</h1>
+    <h2>Site Reliability Engineer (SRE) / Cloud Engineer</h2>
+    <p>Infraestrutura Física e Cloud • Automação • Observabilidade • Versionamento • Orquestração de Containers</p>
+      
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/ansley-donizeti-gon%C3%A7alves/" target="_blank" class="contact-link linkedin-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          <span class="contact-text">LinkedIn</span>
+          <span class="contact-detail">/ansley-donizeti</span>
+        </a>
+        
+        <a href="https://contate.me/5545998353552" target="_blank" class="contact-link whatsapp-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.262-6.209-3.553-8.482"/>
+          </svg>
+          <span class="contact-text">WhatsApp</span>
+          <span class="contact-detail">+55 45 99835-3552</span>
+        </a>
+        
+        <a href="mailto:ansley_dg@hotmail.com" class="contact-link email-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          <span class="contact-text">Email</span>
+          <span class="contact-detail">ansley_dg@hotmail.com</span>
+        </a>
+      </div>
+    </header>
 
-<main>
-  <section id="sobre">
-    <h2>Sobre Mim</h2>
-    <p>
-      Sou um profissional de SRE/DevOps com experiência sólida em ambientes cloud (AWS, Azure e GCP), 
-      automação, observabilidade e infraestrutura orientada à confiabilidade. Ao longo da minha trajetória, 
-      desenvolvi uma visão muito prática voltada à estabilidade, escalabilidade e eficiência dos sistemas, 
-      sempre apoiando times de desenvolvimento na entrega segura e contínua de software.
-    </p>
-    
-    <p>
-      Atualmente atuo no gerenciamento de servidores em cluster, trabalhando com containers (Docker e Kubernetes), 
-      pipelines de CI/CD (Jenkins e GitLab), e soluções de observabilidade como Grafana, Loki, Promtail e Zabbix. 
-      Também tenho experiência com bancos Oracle e PostgreSQL, além de rotinas de automação em Shell Script 
-      para otimizar operações internas.
-    </p>
-    
-    <p>
-      Em experiências anteriores, atuei como SRE em ambientes multicloud, administrando recursos em AWS e GCP e Azure Cloud, 
-      construindo pipelines, ajustando alertas, melhorando monitoramento e reduzindo incidentes operacionais. 
-      Também tenho histórico em gestão de infraestrutura e suporte em ambientes corporativos, o que me ajudou 
-      a desenvolver uma boa comunicação, priorização e visão completa do ciclo de vida da tecnologia dentro da empresa.
-    </p>
-    
-    <p>
-      Acredito que posso contribuir com a empresa trazendo minha experiência em automação, operação confiável, 
-      monitoramento inteligente e colaboração com equipes de desenvolvimento. Meu foco é ajudar o time a construir 
-      ambientes mais estáveis, seguros e eficientes, garantindo disponibilidade e apoiando na evolução contínua da plataforma.
-    </p>
-    <section>
-      <h2>Resumo Profissional</h2>
-      <p>Profissional de SRE/DevOps com experiência sólida em ambientes cloud (AWS, Azure e GCP), automação, observabilidade e containers. Atuação em clusters Linux, Docker e Kubernetes, CI/CD com GitLab/Jenkins e monitoramento com Grafana, Loki, Promtail e Zabbix. Focado em confiabilidade, melhoria contínua e redução de incidentes, com experiência em bancos Oracle e PostgreSQL e suporte a times de desenvolvimento em ambientes críticos.</p>
+  <main>
+    <section id="sobre">
+      <h2 data-i18n="about">Sobre Mim</h2>
+      <p data-i18n="about1">
+        Sou um profissional de SRE/DevOps com experiência sólida em ambientes cloud (AWS, Azure e GCP), 
+        automação, observabilidade e infraestrutura orientada à confiabilidade. Ao longo da minha trajetória, 
+        desenvolvi uma visão muito prática voltada à estabilidade, escalabilidade e eficiência dos sistemas, 
+        sempre apoiando times de desenvolvimento na entrega segura e contínua de software.
+      </p>
+      
+      <p data-i18n="about2">
+        Atualmente atuo no gerenciamento de servidores em cluster, trabalhando com containers (Docker e Kubernetes), 
+        pipelines de CI/CD (Jenkins e GitLab), e soluções de observabilidade como Grafana, Loki, Promtail e Zabbix. 
+        Também tenho experiência com bancos Oracle e PostgreSQL, além de rotinas de automação em Shell Script 
+        para otimizar operações internas.
+      </p>
+      
+      <p data-i18n="about3">
+        Em experiências anteriores, atuei como SRE em ambientes multicloud, administrando recursos em AWS e GCP e Azure Cloud, 
+        construindo pipelines, ajustando alertas, melhorando monitoramento e reduzindo incidentes operacionais. 
+        Também tenho histórico em gestão de infraestrutura e suporte em ambientes corporativos, o que me ajudou 
+        a desenvolver uma boa comunicação, priorização e visão completa do ciclo de vida da tecnologia dentro da empresa.
+      </p>
+      
+      <p data-i18n="about4">
+        Acredito que posso contribuir com a empresa trazendo minha experiência em automação, operação confiável, 
+        monitoramento inteligente e colaboração com equipes de desenvolvimento. Meu foco é ajudar o time a construir 
+        ambientes mais estáveis, seguros e eficientes, garantindo disponibilidade e apoiando na evolução contínua da plataforma.
+      </p>
+      
+      <section>
+        <h2 data-i18n="professionalSummary">Resumo Profissional</h2>
+        <p data-i18n="professionalSummaryText">Profissional de SRE/DevOps com experiência sólida em ambientes cloud (AWS, Azure e GCP), automação, observabilidade e containers. Atuação em clusters Linux, Docker e Kubernetes, CI/CD com GitLab/Jenkins e monitoramento com Grafana, Loki, Promtail e Zabbix. Focado em confiabilidade, melhoria contínua e redução de incidentes, com experiência em bancos Oracle e PostgreSQL e suporte a times de desenvolvimento em ambientes críticos.</p>
+      </section>
+      
+      <section id="download">
+        <h2 data-i18n="downloadResume">Download do Currículo</h2>
+        <a href="Curriculo_Ansley_Donizeti_Gonçalves.pdf" download data-i18n="downloadPdf">⬇️ Baixar Currículo em PDF</a>
+      </section>
     </section>
-    
-    <section id="download">
-      <h2>Download do Currículo</h2>
-      <a href="Curriculo_Ansley_Donizeti_Gonçalves.pdf" download>⬇️ Baixar Currículo em PDF</a>
-    </section>
-    
-  </section>
 
     <section>
-      <h2>Ferramentas</h2>
+      <h2 data-i18n="tools">Ferramentas</h2>
       <div class="tools">
         <div class="tool-item">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" />
           <div class="tooltip">
-            <strong>Docker e Docker Compose</strong>
-            Containerização e ambientes reprodutíveis
+            <strong data-i18n="dockerTitle">Docker e Docker Compose</strong>
+            <span data-i18n="dockerDesc">Containerização e ambientes reprodutíveis</span>
           </div>
         </div>
         
         <div class="tool-item">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" />
           <div class="tooltip">
-            <strong>Linux</strong>
-            Administração de servidores e automação avançada
+            <strong data-i18n="linuxTitle">Linux</strong>
+            <span data-i18n="linuxDesc">Administração de servidores e automação avançada</span>
           </div>
         </div>
         
         <div class="tool-item">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" />
           <div class="tooltip">
-            <strong>Azure</strong>
-            Operação de serviços cloud Microsoft
+            <strong data-i18n="azureTitle">Azure</strong>
+            <span data-i18n="azureDesc">Operação de serviços cloud Microsoft</span>
           </div>
         </div>
         
         <div class="tool-item">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana" />
           <div class="tooltip">
-            <strong>Grafana</strong>
-            Dashboards e visualização de métricas
+            <strong data-i18n="grafanaTitle">Grafana</strong>
+            <span data-i18n="grafanaDesc">Dashboards e visualização de métricas</span>
           </div>
         </div>
         
         <div class="tool-item">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" />
           <div class="tooltip">
-            <strong>Jenkins</strong>
-            Pipelines CI/CD e automação de deployments
+            <strong data-i18n="jenkinsTitle">Jenkins</strong>
+            <span data-i18n="jenkinsDesc">Pipelines CI/CD e automação de deployments</span>
           </div>
         </div>
         
         <div class="tool-item">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" />
           <div class="tooltip">
-            <strong>Git e GitHub</strong>
-            Versionamento, branches, pull requests e colaboração
+            <strong data-i18n="gitTitle">Git e GitHub</strong>
+            <span data-i18n="gitDesc">Versionamento, branches, pull requests e colaboração</span>
           </div>
         </div>
         
         <div class="tool-item">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" />
           <div class="tooltip">
-            <strong>Kubernetes</strong>
-            Orquestração de containers e escalabilidade
+            <strong data-i18n="kubernetesTitle">Kubernetes</strong>
+            <span data-i18n="kubernetesDesc">Orquestração de containers e escalabilidade</span>
           </div>
         </div>
         
         <div class="tool-item">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
           <div class="tooltip">
-            <strong>PostgreSQL</strong>
-            Administração, tuning e operação de bancos
+            <strong data-i18n="postgresqlTitle">PostgreSQL</strong>
+            <span data-i18n="postgresqlDesc">Administração, tuning e operação de bancos</span>
           </div>
         </div>
         
         <div class="tool-item">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" />
           <div class="tooltip">
-            <strong>AWS</strong>
-            Operação multi-cloud e serviços Amazon
+            <strong data-i18n="awsTitle">AWS</strong>
+            <span data-i18n="awsDesc">Operação multi-cloud e serviços Amazon</span>
           </div>
         </div>
         
         <div class="tool-item">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" />
           <div class="tooltip">
-            <strong>Google Cloud</strong>
-            Operação multi-cloud e serviços Google
+            <strong data-i18n="gcpTitle">Google Cloud</strong>
+            <span data-i18n="gcpDesc">Operação multi-cloud e serviços Google</span>
           </div>
         </div>
       </div>
     </section>
 
-
-
     <!-- NOVA SEÇÃO ADICIONADA AQUI - SRE vs DevOps vs Cloud -->
     <section id="sre-devops-cloud">
-      <h2>Entendendo SRE, DevOps e Cloud Engineering</h2>
-      <p>Com minha experiência atuando como SRE e Cloud Engineer, frequentemente explico as diferenças entre essas funções. Aqui está uma visão prática baseada na minha atuação no mercado:</p>
+      <h2 data-i18n="rolesTitle">Entendendo SRE, DevOps e Cloud Engineering</h2>
+      <p data-i18n="rolesIntro">Com minha experiência atuando como SRE e Cloud Engineer, frequentemente explico as diferenças entre essas funções. Aqui está uma visão prática baseada na minha atuação no mercado:</p>
       
       <div class="roles-grid">
         <div class="role-card sre">
@@ -774,24 +833,24 @@
             <svg class="role-icon" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 5.5V7H9V5.5L3 7V9L15 11V13.5L9 14.5V16L3 14V16L9 17.5V22H15V17.5L21 16V14L15 16V14.5L21 13.5V11L15 9V7H21Z"/>
             </svg>
-            SRE
+            <span data-i18n="sreTitle">SRE</span>
           </h4>
-          <p>O SRE é o guardião da confiabilidade dos sistemas. Minha atuação como SRE foca em garantir que os sistemas estejam sempre disponíveis, resilientes e performáticos.</p>
+          <p data-i18n="sreDesc">O SRE é o guardião da confiabilidade dos sistemas. Minha atuação como SRE foca em garantir que os sistemas estejam sempre disponíveis, resilientes e performáticos.</p>
           
           <div class="responsibilities">
-            <strong>Principais responsabilidades:</strong>
+            <strong data-i18n="sreResponsibilities">Principais responsabilidades:</strong>
             <ul>
-              <li>Definir e monitorar SLIs, SLOs e SLAs</li>
-              <li>Implementar e gerenciar sistemas de observabilidade</li>
-              <li>Automatizar respostas a incidentes</li>
-              <li>Gerenciar orçamento de erro</li>
-              <li>Conduzir post-mortems e blameless retrospectives</li>
-              <li>Eliminar trabalho operacional repetitivo</li>
+              <li data-i18n="sreResp1">Definir e monitorar SLIs, SLOs e SLAs</li>
+              <li data-i18n="sreResp2">Implementar e gerenciar sistemas de observabilidade</li>
+              <li data-i18n="sreResp3">Automatizar respostas a incidentes</li>
+              <li data-i18n="sreResp4">Gerenciar orçamento de erro</li>
+              <li data-i18n="sreResp5">Conduzir post-mortems e blameless retrospectives</li>
+              <li data-i18n="sreResp6">Eliminar trabalho operacional repetitivo</li>
             </ul>
           </div>
           
           <div class="focus-area">
-            <strong>Foco principal:</strong> Confiabilidade, disponibilidade e performance dos sistemas em produção.
+            <strong data-i18n="sreFocus">Foco principal:</strong> <span data-i18n="sreFocusText">Confiabilidade, disponibilidade e performance dos sistemas em produção.</span>
           </div>
         </div>
         
@@ -800,24 +859,24 @@
             <svg class="role-icon" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,16.5L6.5,12L11,7.5V12H16V7.5L20.5,12L16,16.5V12H11V16.5Z"/>
             </svg>
-            DevOps Engineer
+            <span data-i18n="devopsTitle">DevOps Engineer</span>
           </h4>
-          <p>O DevOps é o facilitador do fluxo de entrega contínua. Atuo na ponte entre desenvolvimento e operações, acelerando a entrega de valor com segurança.</p>
+          <p data-i18n="devopsDesc">O DevOps é o facilitador do fluxo de entrega contínua. Atuo na ponte entre desenvolvimento e operações, acelerando a entrega de valor com segurança.</p>
           
           <div class="responsibilities">
-            <strong>Principais responsabilidades:</strong>
+            <strong data-i18n="devopsResponsibilities">Principais responsabilidades:</strong>
             <ul>
-              <li>Construir e manter pipelines de CI/CD</li>
-              <li>Implementar Infrastructure as Code</li>
-              <li>Automatizar processos de build, test e deploy</li>
-              <li>Gerenciar repositórios e artefatos</li>
-              <li>Implementar práticas de DevSecOps</li>
-              <li>Otimizar o ciclo de vida do desenvolvimento</li>
+              <li data-i18n="devopsResp1">Construir e manter pipelines de CI/CD</li>
+              <li data-i18n="devopsResp2">Implementar Infrastructure as Code</li>
+              <li data-i18n="devopsResp3">Automatizar processos de build, test e deploy</li>
+              <li data-i18n="devopsResp4">Gerenciar repositórios e artefatos</li>
+              <li data-i18n="devopsResp5">Implementar práticas de DevSecOps</li>
+              <li data-i18n="devopsResp6">Otimizar o ciclo de vida do desenvolvimento</li>
             </ul>
           </div>
           
           <div class="focus-area">
-            <strong>Foco principal:</strong> Velocidade, automação e colaboração entre desenvolvimento e operações.
+            <strong data-i18n="devopsFocus">Foco principal:</strong> <span data-i18n="devopsFocusText">Velocidade, automação e colaboração entre desenvolvimento e operações.</span>
           </div>
         </div>
         
@@ -826,46 +885,46 @@
             <svg class="role-icon" viewBox="0 0 24 24" fill="currentColor">
               <path d="M6.5 20Q4.22 20 2.61 18.43 1 16.85 1 14.58 1 12.63 2.17 11.1 3.35 9.57 5.25 9.15 5.88 6.85 7.75 5.43 9.63 4 12 4 14.93 4 16.96 6.04 19 8.07 19 11 20.73 11.2 21.86 12.5 23 13.78 23 15.5 23 17.38 21.69 18.69 20.38 20 18.5 20Z"/>
             </svg>
-            Cloud Engineer
+            <span data-i18n="cloudTitle">Cloud Engineer</span>
           </h4>
-          <p>O Cloud Engineer é o arquiteto da infraestrutura na nuvem. Minha experiência inclui projetar, implementar e gerenciar ambientes cloud escaláveis e seguros.</p>
+          <p data-i18n="cloudDesc">O Cloud Engineer é o arquiteto da infraestrutura na nuvem. Minha experiência inclui projetar, implementar e gerenciar ambientes cloud escaláveis e seguros.</p>
           
           <div class="responsibilities">
-            <strong>Principais responsabilidades:</strong>
+            <strong data-i18n="cloudResponsibilities">Principais responsabilidades:</strong>
             <ul>
-              <li>Projetar arquiteturas cloud (AWS, Azure, GCP)</li>
-              <li>Gerenciar recursos de computação, rede e storage</li>
-              <li>Implementar segurança e compliance na nuvem</li>
-              <li>Otimizar custos e performance</li>
-              <li>Gerenciar identidade e acesso (IAM)</li>
-              <li>Implementar estratégias de backup e DR</li>
+              <li data-i18n="cloudResp1">Projetar arquiteturas cloud (AWS, Azure, GCP)</li>
+              <li data-i18n="cloudResp2">Gerenciar recursos de computação, rede e storage</li>
+              <li data-i18n="cloudResp3">Implementar segurança e compliance na nuvem</li>
+              <li data-i18n="cloudResp4">Otimizar custos e performance</li>
+              <li data-i18n="cloudResp5">Gerenciar identidade e acesso (IAM)</li>
+              <li data-i18n="cloudResp6">Implementar estratégias de backup e DR</li>
             </ul>
           </div>
           
           <div class="focus-area">
-            <strong>Foco principal:</strong> Infraestrutura cloud, segurança, custo-efetividade e escalabilidade.
+            <strong data-i18n="cloudFocus">Foco principal:</strong> <span data-i18n="cloudFocusText">Infraestrutura cloud, segurança, custo-efetividade e escalabilidade.</span>
           </div>
         </div>
       </div>
       
       <div class="analogy-box" style="margin-top: 30px;">
-        <h4>📋 Como atuo na prática:</h4>
-        <p>Na minha trajetória, essas funções se complementam. Como <strong>SRE</strong>, garanto que os sistemas estejam confiáveis através de monitoramento proativo com Grafana, Loki e Zabbix. Como <strong>DevOps</strong>, implemento automação com Jenkins, Docker e Kubernetes para acelerar entregas. E como <strong>Cloud Engineer</strong>, projeto e opero infraestrutura em AWS, Azure e GCP para garantir escalabilidade e segurança.</p>
-        <p>Esta combinação me permite não apenas construir sistemas robustos, mas também garantir que eles sejam entregues rapidamente e operem com confiabilidade em ambientes cloud.</p>
+        <h4 data-i18n="analogyTitle">📋 Como atuo na prática:</h4>
+        <p data-i18n="analogyText1">Na minha trajetória, essas funções se complementam. Como <strong>SRE</strong>, garanto que os sistemas estejam confiáveis através de monitoramento proativo com Grafana, Loki e Zabbix. Como <strong>DevOps</strong>, implemento automação com Jenkins, Docker e Kubernetes para acelerar entregas. E como <strong>Cloud Engineer</strong>, projeto e opero infraestrutura em AWS, Azure e GCP para garantir escalabilidade e segurança.</p>
+        <p data-i18n="analogyText2">Esta combinação me permite não apenas construir sistemas robustos, mas também garantir que eles sejam entregues rapidamente e operem com confiabilidade em ambientes cloud.</p>
       </div>
     </section>
 
     <section id="exp">
-      <h2>Experiência Profissional (Timeline)</h2>
+      <h2 data-i18n="experience">Experiência Profissional (Timeline)</h2>
       <div class="timeline">
         <div class="card-exp">
           <div class="company-header">
             <a href="https://www.aliare.co/" target="_blank">
               <img src="Aliare-Logo.jpg" alt="Aliare" class="company-logo">
             </a>
-            <h3>Aliare — Analista de Configuração (fev/2023 – atual)</h3>
+            <h3>Aliare — <span data-i18n="aliareRole">Analista de Configuração</span> (fev/2023 – atual)</h3>
           </div>
-          <p>Atuo no gerenciamento de servidores em cluster, com foco em containers utilizando Docker e Docker Compose.
+          <p data-i18n="aliareDesc">Atuo no gerenciamento de servidores em cluster, com foco em containers utilizando Docker e Docker Compose.
 Auxilio as equipes de Desenvolvimento e Teste em demandas relacionadas a Linux, infraestrutura e automação.
 Trabalho com monitoramento e observabilidade utilizando Grafana, Promtail, Loki e Zabbix para métricas e alertas.
 Também realizo configurações e restaurações de bancos de dados Oracle e PostgreSQL, além de atuar em ambientes cloud, especialmente na Azure.
@@ -875,9 +934,9 @@ Desenvolvo scripts em Shell para automação de rotinas internas e realizo ajust
               <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
               </svg>
-              Carta de Recomendação
+              <span data-i18n="recommendationLetter">Carta de Recomendação</span>
             </button>
-            <span style="font-size: 0.8rem; opacity: 0.6;">(Em breve)</span>
+            <span style="font-size: 0.8rem; opacity: 0.6;" data-i18n="comingSoon">(Em breve)</span>
           </div>
         </div>
 
@@ -886,15 +945,15 @@ Desenvolvo scripts em Shell para automação de rotinas internas e realizo ajust
             <a href="https://securityfirst.com.br/" target="_blank">
               <img src="Securityfirst-Logo.jpg" alt="Security First" class="company-logo">
             </a>
-            <h3>Security First — Analista Cloud Junior (set/2022 – fev/2023)</h3>
+            <h3>Security First — <span data-i18n="securityfirstRole">Analista Cloud Junior</span> (set/2022 – fev/2023)</h3>
           </div>
-          <p>Atuei como SRE em ambientes cloud e on-premise, focado em automação, estabilidade e observabilidade. Trabalhei no gerenciamento de clusters Proxmox, administração de servidores Linux e criação de rotinas de automação para reduzir esforço operacional. Também fui responsável por implementar e manter painéis e alertas em ferramentas de monitoramento como Grafana, Zabbix, New Relic, Datadog e Dynatrace, garantindo visibilidade e resposta rápida a incidentes.</p>
+          <p data-i18n="securityfirstDesc">Atuei como SRE em ambientes cloud e on-premise, focado em automação, estabilidade e observabilidade. Trabalhei no gerenciamento de clusters Proxmox, administração de servidores Linux e criação de rotinas de automação para reduzir esforço operacional. Também fui responsável por implementar e manter painéis e alertas em ferramentas de monitoramento como Grafana, Zabbix, New Relic, Datadog e Dynatrace, garantindo visibilidade e resposta rápida a incidentes.</p>
           <div class="company-actions">
             <a href="Carta de Recomendação SecurituFirst - Ansley.pdf" download class="recommendation-btn">
               <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
               </svg>
-              Baixar Carta de Recomendação
+              <span data-i18n="downloadRecommendation">Baixar Carta de Recomendação</span>
             </a>
           </div>
         </div>
@@ -904,9 +963,9 @@ Desenvolvo scripts em Shell para automação de rotinas internas e realizo ajust
             <a href="https://o2b.com.br/" target="_blank">
               <img src="O2B-Logo.jpg" alt="O2B" class="company-logo">
             </a>
-            <h3>O2B — Analista Cloud Júnior (abr/2020 – set/2022)</h3>
+            <h3>O2B — <span data-i18n="o2bRole">Analista Cloud Júnior</span> (abr/2020 – set/2022)</h3>
           </div>
-          <p>Atuação como SRE, com foco na instalação, configuração e monitoramento de servidores em ambientes cloud.
+          <p data-i18n="o2bDesc">Atuação como SRE, com foco na instalação, configuração e monitoramento de servidores em ambientes cloud.
 Utilizo Zabbix e Grafana para observabilidade e métricas, além de gerenciar instâncias e recursos nas plataformas AWS e GCP.
 Realizo implantação de máquinas, configuração de alertas e administração de bancos de dados conforme a necessidade do ambiente.
 Também trabalho com versionamento e automação de infraestrutura utilizando Git, GitHub, Docker e Kubernetes, com orquestração via Rancher.</p>
@@ -915,7 +974,7 @@ Também trabalho com versionamento e automação de infraestrutura utilizando Gi
               <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
               </svg>
-              Baixar Carta de Recomendação
+              <span data-i18n="downloadRecommendation">Baixar Carta de Recomendação</span>
             </a>
           </div>
         </div>
@@ -925,9 +984,9 @@ Também trabalho com versionamento e automação de infraestrutura utilizando Gi
             <a href="https://enjin.com.br/" target="_blank">
               <img src="Enjin-Honda-Logo.png" alt="Enjin Honda" class="company-logo">
             </a>
-            <h3>Enjin Honda Automóveis — Gerente de TI (ago/2019 – mar/2020)</h3>
+            <h3>Enjin Honda Automóveis — <span data-i18n="enjinRole">Gerente de TI</span> (ago/2019 – mar/2020)</h3>
           </div>
-          <p>Atuação como Gerente de TI, responsável pelo suporte técnico (Help Desk) e pela infraestrutura de rede e servidores.
+          <p data-i18n="enjinDesc">Atuação como Gerente de TI, responsável pelo suporte técnico (Help Desk) e pela infraestrutura de rede e servidores.
 Realizava manutenção preventiva e corretiva no parque de máquinas, além de configurar e monitorar sistemas internos.
 Efetuava ajustes em sistemas e bancos de dados, garantindo a estabilidade e o bom desempenho dos serviços de TI.
 Também era responsável por organizar demandas, acompanhar chamados e assegurar o bom funcionamento dos recursos tecnológicos da empresa.</p>
@@ -936,7 +995,7 @@ Também era responsável por organizar demandas, acompanhar chamados e assegurar
               <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
               </svg>
-              Baixar Carta de Recomendação
+              <span data-i18n="downloadRecommendation">Baixar Carta de Recomendação</span>
             </a>
           </div>
         </div>
@@ -946,9 +1005,9 @@ Também era responsável por organizar demandas, acompanhar chamados e assegurar
             <a href="https://www.brascloud.com.br/pt-br" target="_blank">
               <img src="Brascloud-Logo.jpg" alt="BRASCLOUD" class="company-logo">
             </a>
-            <h3>BRASCLOUD — Administrativo de Sistemas I (mai/2019 – ago/2019)</h3>
+            <h3>BRASCLOUD — <span data-i18n="brascloudRole">Administrativo de Sistemas I</span> (mai/2019 – ago/2019)</h3>
           </div>
-          <p>Atuação na administração de sistemas e infraestrutura de rede, com foco na manutenção e configuração de servidores e equipamentos.
+          <p data-i18n="brascloudDesc">Atuação na administração de sistemas e infraestrutura de rede, com foco na manutenção e configuração de servidores e equipamentos.
 Responsável por garantir o bom funcionamento da rede local e prestar suporte técnico a usuários com menor familiaridade em tecnologia, auxiliando na utilização de sistemas e ambiente Windows.
 Realizava rotinas de manutenção preventiva, resolução de incidentes e apoio geral nas demandas de TI da empresa.</p>
           <div class="company-actions">
@@ -956,7 +1015,7 @@ Realizava rotinas de manutenção preventiva, resolução de incidentes e apoio 
               <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
               </svg>
-              Baixar Carta de Recomendação
+              <span data-i18n="downloadRecommendation">Baixar Carta de Recomendação</span>
             </a>
           </div>
         </div>
@@ -966,9 +1025,9 @@ Realizava rotinas de manutenção preventiva, resolução de incidentes e apoio 
             <a href="https://zenimotors.com/" target="_blank">
               <img src="Zeni-Motors-Logo.png" alt="Zeni Motors" class="company-logo">
             </a>
-            <h3>Zeni Motors Toyota — Assistente de TI (jul/2017 – abr/2019)</h3>
+            <h3>Zeni Motors Toyota — <span data-i18n="zeniRole">Assistente de TI</span> (jul/2017 – abr/2019)</h3>
           </div>
-          <p>Atuação como Assistente de TI, com foco em suporte técnico e manutenção de estações de trabalho.
+          <p data-i18n="zeniDesc">Atuação como Assistente de TI, com foco em suporte técnico e manutenção de estações de trabalho.
 Responsável por formatação e configuração de computadores, gerenciamento do parque de máquinas e atendimento a usuários.
 Tive a oportunidade de aprender e aplicar conhecimentos em Linux, Windows, FTP, servidor Apache e conceitos básicos de rede, garantindo o bom funcionamento dos sistemas e da infraestrutura local.</p>
           <div class="company-actions">
@@ -976,7 +1035,7 @@ Tive a oportunidade de aprender e aplicar conhecimentos em Linux, Windows, FTP, 
               <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
               </svg>
-              Baixar Carta de Recomendação
+              <span data-i18n="downloadRecommendation">Baixar Carta de Recomendação</span>
             </a>
           </div>
         </div>
@@ -986,9 +1045,9 @@ Tive a oportunidade de aprender e aplicar conhecimentos em Linux, Windows, FTP, 
             <a href="https://copyvic.com.br/" target="_blank">
               <img src="Copyvic-Logo.jpg" alt="Copyvic" class="company-logo">
             </a>
-            <h3>Copyvic — Auxiliar Técnico (out/2015 – jun/2016)</h3>
+            <h3>Copyvic — <span data-i18n="copyvicRole">Auxiliar Técnico</span> (out/2015 – jun/2016)</h3>
           </div>
-          <p>Atuação na manutenção e suporte técnico de impressoras e copiadoras, incluindo diagnóstico, reparo e configuração de equipamentos.
+          <p data-i18n="copyvicDesc">Atuação na manutenção e suporte técnico de impressoras e copiadoras, incluindo diagnóstico, reparo e configuração de equipamentos.
 Também prestava suporte básico em rede e sistemas operacionais Windows e Linux, garantindo a conectividade dos dispositivos internos da empresa.
 Fui inicialmente contratado para atuar com impressoras 3D, mas o projeto não avançou; ainda assim, mantive foco no suporte técnico e manutenção de equipamentos de impressão da empresa.</p>
           <div class="company-actions">
@@ -996,7 +1055,7 @@ Fui inicialmente contratado para atuar com impressoras 3D, mas o projeto não av
               <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
               </svg>
-              Baixar Carta de Recomendação
+              <span data-i18n="downloadRecommendation">Baixar Carta de Recomendação</span>
             </a>
           </div>
         </div>
@@ -1006,9 +1065,9 @@ Fui inicialmente contratado para atuar com impressoras 3D, mas o projeto não av
             <a href="https://mascarello.com.br/" target="_blank">
               <img src="Mascarello-Logo.jpg" alt="Mascarello" class="company-logo">
             </a>
-            <h3>Mascarello Ônibus — Analista de Suporte (abr/2015 – jul/2015)</h3>
+            <h3>Mascarello Ônibus — <span data-i18n="mascarelloRole">Analista de Suporte</span> (abr/2015 – jul/2015)</h3>
           </div>
-          <p>Atuação como Analista de Suporte de TI, com foco em manutenção física de equipamentos e atendimento a usuários.
+          <p data-i18n="mascarelloDesc">Atuação como Analista de Suporte de TI, com foco em manutenção física de equipamentos e atendimento a usuários.
 Responsável por formatação e configuração de computadores, troca de peças e manutenção de impressoras.
 Prestava suporte técnico presencial, garantindo o funcionamento adequado dos equipamentos e auxiliando usuários em demandas do dia a dia.</p>
           <div class="company-actions">
@@ -1016,50 +1075,367 @@ Prestava suporte técnico presencial, garantindo o funcionamento adequado dos eq
               <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
               </svg>
-              Baixar Carta de Recomendação
+              <span data-i18n="downloadRecommendation">Baixar Carta de Recomendação</span>
             </a>
           </div>
         </div>
       </div>
     </section>
 
-<section id="formacao">
-  <h2>Formação Acadêmica</h2>
-  
-  <div class="education-item">
-    <h3>UTFPR — Pós-Graduação em Redes de Computadores (2019–2020)</h3>
-    <p>Estudo de modelos OSI/TCP-IP, protocolos (TCP, UDP, IP, HTTP, FTP), topologias de rede, conectividade entre tecnologias, convergência entre telecomunicações e dados, IoT e interoperabilidade de sistemas.</p>
-    <div class="company-actions">
-      <a href="Certificado-UTFPR-ANSLEY.pdf" download class="recommendation-btn">
-        <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-        </svg>
-        Baixar Certificado de Conclusão UTFPR
-      </a>
-    </div>
-  </div>
-  
-  <div class="education-item">
-    <h3>Centro Universitário FAG — Bacharelado em Sistemas de Informação (2014–2018)</h3>
-    <p>Desenvolvimento de software, gestão de projetos, análise de dados, segurança da informação, administração de redes e infraestrutura, auditoria de TI e planejamento tecnológico.</p>
-    <div class="company-actions">
-      <a href="Certificado-FAG-Ansley.pdf" download class="recommendation-btn">
-        <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-        </svg>
-        Baixar Certificado de Conclusão FAG
-      </a>
-    </div>
-  </div>
+    <section id="formacao">
+      <h2 data-i18n="education">Formação Acadêmica</h2>
+      
+      <div class="education-item">
+        <h3>UTFPR — <span data-i18n="utfprCourse">Pós-Graduação em Redes de Computadores</span> (2019–2020)</h3>
+        <p data-i18n="utfprDesc">Estudo de modelos OSI/TCP-IP, protocolos (TCP, UDP, IP, HTTP, FTP), topologias de rede, conectividade entre tecnologias, convergência entre telecomunicações e dados, IoT e interoperabilidade de sistemas.</p>
+        <div class="company-actions">
+          <a href="Certificado-UTFPR-ANSLEY.pdf" download class="recommendation-btn">
+            <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            <span data-i18n="downloadCertificate">Baixar Certificado de Conclusão UTFPR</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="education-item">
+        <h3>Centro Universitário FAG — <span data-i18n="fagCourse">Bacharelado em Sistemas de Informação</span> (2014–2018)</h3>
+        <p data-i18n="fagDesc">Desenvolvimento de software, gestão de projetos, análise de dados, segurança da informação, administração de redes e infraestrutura, auditoria de TI e planejamento tecnológico.</p>
+        <div class="company-actions">
+          <a href="Certificado-FAG-Ansley.pdf" download class="recommendation-btn">
+            <svg class="recommendation-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            <span data-i18n="downloadCertificate">Baixar Certificado de Conclusão FAG</span>
+          </a>
+        </div>
+      </div>
 
-  <div class="education-item">
-    <h3>CNA Idiomas — Inglês (01 ano - até Intermediate 1)</h3>
-    <p>Formação em língua inglesa com desenvolvimento das quatro habilidades linguísticas: listening, speaking, reading e writing.</p>
-  </div>
-</section>
-
-
+      <div class="education-item">
+        <h3>CNA Idiomas — <span data-i18n="cnaCourse">Inglês</span> (01 ano - até Intermediate 1)</h3>
+        <p data-i18n="cnaDesc">Formação em língua inglesa com desenvolvimento das quatro habilidades linguísticas: listening, speaking, reading e writing.</p>
+      </div>
+    </section>
   </main>
 
+  <script>
+    // Language data
+    const translations = {
+      pt: {
+        // Header
+        "title": "Currículo - Ansley",
+        "name": "Ansley Donizeti Gonçalves",
+        "position": "Site Reliability Engineer (SRE) / Cloud Engineer",
+        "skills": "Infraestrutura Física e Cloud • Automação • Observabilidade • Versionamento • Orquestração de Containers",
+        "linkedin": "LinkedIn",
+        "whatsapp": "WhatsApp",
+        "email": "Email",
+        
+        // About section
+        "about": "Sobre Mim",
+        "about1": "Sou um profissional de SRE/DevOps com experiência sólida em ambientes cloud (AWS, Azure e GCP), automação, observabilidade e infraestrutura orientada à confiabilidade. Ao longo da minha trajetória, desenvolvi uma visão muito prática voltada à estabilidade, escalabilidade e eficiência dos sistemas, sempre apoiando times de desenvolvimento na entrega segura e contínua de software.",
+        "about2": "Atualmente atuo no gerenciamento de servidores em cluster, trabalhando com containers (Docker e Kubernetes), pipelines de CI/CD (Jenkins e GitLab), e soluções de observabilidade como Grafana, Loki, Promtail e Zabbix. Também tenho experiência com bancos Oracle e PostgreSQL, além de rotinas de automação em Shell Script para otimizar operações internas.",
+        "about3": "Em experiências anteriores, atuei como SRE em ambientes multicloud, administrando recursos em AWS e GCP e Azure Cloud, construindo pipelines, ajustando alertas, melhorando monitoramento e reduzindo incidentes operacionais. Também tenho histórico em gestão de infraestrutura e suporte em ambientes corporativos, o que me ajudou a desenvolver uma boa comunicação, priorização e visão completa do ciclo de vida da tecnologia dentro da empresa.",
+        "about4": "Acredito que posso contribuir com a empresa trazendo minha experiência em automação, operação confiável, monitoramento inteligente e colaboração com equipes de desenvolvimento. Meu foco é ajudar o time a construir ambientes mais estáveis, seguros e eficientes, garantindo disponibilidade e apoiando na evolução contínua da plataforma.",
+        
+        "professionalSummary": "Resumo Profissional",
+        "professionalSummaryText": "Profissional de SRE/DevOps com experiência sólida em ambientes cloud (AWS, Azure e GCP), automação, observabilidade e containers. Atuação em clusters Linux, Docker e Kubernetes, CI/CD com GitLab/Jenkins e monitoramento com Grafana, Loki, Promtail e Zabbix. Focado em confiabilidade, melhoria contínua e redução de incidentes, com experiência em bancos Oracle e PostgreSQL e suporte a times de desenvolvimento em ambientes críticos.",
+        
+        "downloadResume": "Download do Currículo",
+        "downloadPdf": "⬇️ Baixar Currículo em PDF",
+        
+        // Tools section
+        "tools": "Ferramentas",
+        "dockerTitle": "Docker e Docker Compose",
+        "dockerDesc": "Containerização e ambientes reprodutíveis",
+        "linuxTitle": "Linux",
+        "linuxDesc": "Administração de servidores e automação avançada",
+        "azureTitle": "Azure",
+        "azureDesc": "Operação de serviços cloud Microsoft",
+        "grafanaTitle": "Grafana",
+        "grafanaDesc": "Dashboards e visualização de métricas",
+        "jenkinsTitle": "Jenkins",
+        "jenkinsDesc": "Pipelines CI/CD e automação de deployments",
+        "gitTitle": "Git e GitHub",
+        "gitDesc": "Versionamento, branches, pull requests e colaboração",
+        "kubernetesTitle": "Kubernetes",
+        "kubernetesDesc": "Orquestração de containers e escalabilidade",
+        "postgresqlTitle": "PostgreSQL",
+        "postgresqlDesc": "Administração, tuning e operação de bancos",
+        "awsTitle": "AWS",
+        "awsDesc": "Operação multi-cloud e serviços Amazon",
+        "gcpTitle": "Google Cloud",
+        "gcpDesc": "Operação multi-cloud e serviços Google",
+        
+        // SRE/DevOps/Cloud section
+        "rolesTitle": "Entendendo SRE, DevOps e Cloud Engineering",
+        "rolesIntro": "Com minha experiência atuando como SRE e Cloud Engineer, frequentemente explico as diferenças entre essas funções. Aqui está uma visão prática baseada na minha atuação no mercado:",
+        
+        "sreTitle": "SRE",
+        "sreDesc": "O SRE é o guardião da confiabilidade dos sistemas. Minha atuação como SRE foca em garantir que os sistemas estejam sempre disponíveis, resilientes e performáticos.",
+        "sreResponsibilities": "Principais responsabilidades:",
+        "sreResp1": "Definir e monitorar SLIs, SLOs e SLAs",
+        "sreResp2": "Implementar e gerenciar sistemas de observabilidade",
+        "sreResp3": "Automatizar respostas a incidentes",
+        "sreResp4": "Gerenciar orçamento de erro",
+        "sreResp5": "Conduzir post-mortems e blameless retrospectives",
+        "sreResp6": "Eliminar trabalho operacional repetitivo",
+        "sreFocus": "Foco principal:",
+        "sreFocusText": "Confiabilidade, disponibilidade e performance dos sistemas em produção.",
+        
+        "devopsTitle": "DevOps Engineer",
+        "devopsDesc": "O DevOps é o facilitador do fluxo de entrega contínua. Atuo na ponte entre desenvolvimento e operações, acelerando a entrega de valor com segurança.",
+        "devopsResponsibilities": "Principais responsabilidades:",
+        "devopsResp1": "Construir e manter pipelines de CI/CD",
+        "devopsResp2": "Implementar Infrastructure as Code",
+        "devopsResp3": "Automatizar processos de build, test e deploy",
+        "devopsResp4": "Gerenciar repositórios e artefatos",
+        "devopsResp5": "Implementar práticas de DevSecOps",
+        "devopsResp6": "Otimizar o ciclo de vida do desenvolvimento",
+        "devopsFocus": "Foco principal:",
+        "devopsFocusText": "Velocidade, automação e colaboração entre desenvolvimento e operações.",
+        
+        "cloudTitle": "Cloud Engineer",
+        "cloudDesc": "O Cloud Engineer é o arquiteto da infraestrutura na nuvem. Minha experiência inclui projetar, implementar e gerenciar ambientes cloud escaláveis e seguros.",
+        "cloudResponsibilities": "Principais responsabilidades:",
+        "cloudResp1": "Projetar arquiteturas cloud (AWS, Azure, GCP)",
+        "cloudResp2": "Gerenciar recursos de computação, rede e storage",
+        "cloudResp3": "Implementar segurança e compliance na nuvem",
+        "cloudResp4": "Otimizar custos e performance",
+        "cloudResp5": "Gerenciar identidade e acesso (IAM)",
+        "cloudResp6": "Implementar estratégias de backup e DR",
+        "cloudFocus": "Foco principal:",
+        "cloudFocusText": "Infraestrutura cloud, segurança, custo-efetividade e escalabilidade.",
+        
+        "analogyTitle": "📋 Como atuo na prática:",
+        "analogyText1": "Na minha trajetória, essas funções se complementam. Como <strong>SRE</strong>, garanto que os sistemas estejam confiáveis através de monitoramento proativo com Grafana, Loki e Zabbix. Como <strong>DevOps</strong>, implemento automação com Jenkins, Docker e Kubernetes para acelerar entregas. E como <strong>Cloud Engineer</strong>, projeto e opero infraestrutura em AWS, Azure e GCP para garantir escalabilidade e segurança.",
+        "analogyText2": "Esta combinação me permite não apenas construir sistemas robustos, mas também garantir que eles sejam entregues rapidamente e operem com confiabilidade em ambientes cloud.",
+        
+        // Experience section
+        "experience": "Experiência Profissional (Timeline)",
+        "aliareRole": "Analista de Configuração",
+        "aliareDesc": "Atuo no gerenciamento de servidores em cluster, com foco em containers utilizando Docker e Docker Compose. Auxilio as equipes de Desenvolvimento e Teste em demandas relacionadas a Linux, infraestrutura e automação. Trabalho com monitoramento e observabilidade utilizando Grafana, Promtail, Loki e Zabbix para métricas e alertas. Também realizo configurações e restaurações de bancos de dados Oracle e PostgreSQL, além de atuar em ambientes cloud, especialmente na Azure. Desenvolvo scripts em Shell para automação de rotinas internas e realizo ajustes e configurações em pipelines de CI/CD utilizando Jenkins.",
+        
+        "securityfirstRole": "Analista Cloud Junior",
+        "securityfirstDesc": "Atuei como SRE em ambientes cloud e on-premise, focado em automação, estabilidade e observabilidade. Trabalhei no gerenciamento de clusters Proxmox, administração de servidores Linux e criação de rotinas de automação para reduzir esforço operacional. Também fui responsável por implementar e manter painéis e alertas em ferramentas de monitoramento como Grafana, Zabbix, New Relic, Datadog e Dynatrace, garantindo visibilidade e resposta rápida a incidentes.",
+        
+        "o2bRole": "Analista Cloud Júnior",
+        "o2bDesc": "Atuação como SRE, com foco na instalação, configuração e monitoramento de servidores em ambientes cloud. Utilizo Zabbix e Grafana para observabilidade e métricas, além de gerenciar instâncias e recursos nas plataformas AWS e GCP. Realizo implantação de máquinas, configuração de alertas e administração de bancos de dados conforme a necessidade do ambiente. Também trabalho com versionamento e automação de infraestrutura utilizando Git, GitHub, Docker e Kubernetes, com orquestração via Rancher.",
+        
+        "enjinRole": "Gerente de TI",
+        "enjinDesc": "Atuação como Gerente de TI, responsável pelo suporte técnico (Help Desk) e pela infraestrutura de rede e servidores. Realizava manutenção preventiva e corretiva no parque de máquinas, além de configurar e monitorar sistemas internos. Efetuava ajustes em sistemas e bancos de dados, garantindo a estabilidade e o bom desempenho dos serviços de TI. Também era responsável por organizar demandas, acompanhar chamados e assegurar o bom funcionamento dos recursos tecnológicos da empresa.",
+        
+        "brascloudRole": "Administrativo de Sistemas I",
+        "brascloudDesc": "Atuação na administração de sistemas e infraestrutura de rede, com foco na manutenção e configuração de servidores e equipamentos. Responsável por garantir o bom funcionamento da rede local e prestar suporte técnico a usuários com menor familiaridade em tecnologia, auxiliando na utilização de sistemas e ambiente Windows. Realizava rotinas de manutenção preventiva, resolução de incidentes e apoio geral nas demandas de TI da empresa.",
+        
+        "zeniRole": "Assistente de TI",
+        "zeniDesc": "Atuação como Assistente de TI, com foco em suporte técnico e manutenção de estações de trabalho. Responsável por formatação e configuração de computadores, gerenciamento do parque de máquinas e atendimento a usuários. Tive a oportunidade de aprender e aplicar conhecimentos em Linux, Windows, FTP, servidor Apache e conceitos básicos de rede, garantindo o bom funcionamento dos sistemas e da infraestrutura local.",
+        
+        "copyvicRole": "Auxiliar Técnico",
+        "copyvicDesc": "Atuação na manutenção e suporte técnico de impressoras e copiadoras, incluindo diagnóstico, reparo e configuração de equipamentos. Também prestava suporte básico em rede e sistemas operacionais Windows e Linux, garantindo a conectividade dos dispositivos internos da empresa. Fui inicialmente contratado para atuar com impressoras 3D, mas o projeto não avançou; ainda assim, mantive foco no suporte técnico e manutenção de equipamentos de impressão da empresa.",
+        
+        "mascarelloRole": "Analista de Suporte",
+        "mascarelloDesc": "Atuação como Analista de Suporte de TI, com foco em manutenção física de equipamentos e atendimento a usuários. Responsável por formatação e configuração de computadores, troca de peças e manutenção de impressoras. Prestava suporte técnico presencial, garantindo o funcionamento adequado dos equipamentos e auxiliando usuários em demandas do dia a dia.",
+        
+        "recommendationLetter": "Carta de Recomendação",
+        "comingSoon": "(Em breve)",
+        "downloadRecommendation": "Baixar Carta de Recomendação",
+        
+        // Education section
+        "education": "Formação Acadêmica",
+        "utfprCourse": "Pós-Graduação em Redes de Computadores",
+        "utfprDesc": "Estudo de modelos OSI/TCP-IP, protocolos (TCP, UDP, IP, HTTP, FTP), topologias de rede, conectividade entre tecnologias, convergência entre telecomunicações e dados, IoT e interoperabilidade de sistemas.",
+        "fagCourse": "Bacharelado em Sistemas de Informação",
+        "fagDesc": "Desenvolvimento de software, gestão de projetos, análise de dados, segurança da informação, administração de redes e infraestrutura, auditoria de TI e planejamento tecnológico.",
+        "cnaCourse": "Inglês",
+        "cnaDesc": "Formação em língua inglesa com desenvolvimento das quatro habilidades linguísticas: listening, speaking, reading e writing.",
+        "downloadCertificate": "Baixar Certificado de Conclusão"
+      },
+      en: {
+        // Header
+        "title": "Resume - Ansley",
+        "name": "Ansley Donizeti Gonçalves",
+        "position": "Site Reliability Engineer (SRE) / Cloud Engineer",
+        "skills": "Physical and Cloud Infrastructure • Automation • Observability • Versioning • Container Orchestration",
+        "linkedin": "LinkedIn",
+        "whatsapp": "WhatsApp",
+        "email": "Email",
+        
+        // About section
+        "about": "About Me",
+        "about1": "I am an SRE/DevOps professional with solid experience in cloud environments (AWS, Azure and GCP), automation, observability and reliability-oriented infrastructure. Throughout my career, I have developed a very practical approach focused on stability, scalability and efficiency of systems, always supporting development teams in secure and continuous software delivery.",
+        "about2": "I currently work on cluster server management, working with containers (Docker and Kubernetes), CI/CD pipelines (Jenkins and GitLab), and observability solutions such as Grafana, Loki, Promtail and Zabbix. I also have experience with Oracle and PostgreSQL databases, in addition to Shell Script automation routines to optimize internal operations.",
+        "about3": "In previous experiences, I worked as an SRE in multi-cloud environments, managing resources in AWS, GCP and Azure Cloud, building pipelines, adjusting alerts, improving monitoring and reducing operational incidents. I also have a background in infrastructure management and support in corporate environments, which has helped me develop good communication, prioritization and a complete view of the technology lifecycle within the company.",
+        "about4": "I believe I can contribute to the company by bringing my experience in automation, reliable operations, intelligent monitoring and collaboration with development teams. My focus is to help the team build more stable, secure and efficient environments, ensuring availability and supporting the continuous evolution of the platform.",
+        
+        "professionalSummary": "Professional Summary",
+        "professionalSummaryText": "SRE/DevOps professional with solid experience in cloud environments (AWS, Azure and GCP), automation, observability and containers. Experience in Linux clusters, Docker and Kubernetes, CI/CD with GitLab/Jenkins and monitoring with Grafana, Loki, Promtail and Zabbix. Focused on reliability, continuous improvement and incident reduction, with experience in Oracle and PostgreSQL databases and support for development teams in critical environments.",
+        
+        "downloadResume": "Download Resume",
+        "downloadPdf": "⬇️ Download PDF Resume",
+        
+        // Tools section
+        "tools": "Tools",
+        "dockerTitle": "Docker and Docker Compose",
+        "dockerDesc": "Containerization and reproducible environments",
+        "linuxTitle": "Linux",
+        "linuxDesc": "Server administration and advanced automation",
+        "azureTitle": "Azure",
+        "azureDesc": "Microsoft cloud services operation",
+        "grafanaTitle": "Grafana",
+        "grafanaDesc": "Dashboards and metrics visualization",
+        "jenkinsTitle": "Jenkins",
+        "jenkinsDesc": "CI/CD pipelines and deployment automation",
+        "gitTitle": "Git and GitHub",
+        "gitDesc": "Versioning, branches, pull requests and collaboration",
+        "kubernetesTitle": "Kubernetes",
+        "kubernetesDesc": "Container orchestration and scalability",
+        "postgresqlTitle": "PostgreSQL",
+        "postgresqlDesc": "Database administration, tuning and operation",
+        "awsTitle": "AWS",
+        "awsDesc": "Multi-cloud operation and Amazon services",
+        "gcpTitle": "Google Cloud",
+        "gcpDesc": "Multi-cloud operation and Google services",
+        
+        // SRE/DevOps/Cloud section
+        "rolesTitle": "Understanding SRE, DevOps and Cloud Engineering",
+        "rolesIntro": "With my experience working as an SRE and Cloud Engineer, I often explain the differences between these roles. Here is a practical view based on my market experience:",
+        
+        "sreTitle": "SRE",
+        "sreDesc": "The SRE is the guardian of system reliability. My work as an SRE focuses on ensuring that systems are always available, resilient and performant.",
+        "sreResponsibilities": "Main responsibilities:",
+        "sreResp1": "Define and monitor SLIs, SLOs and SLAs",
+        "sreResp2": "Implement and manage observability systems",
+        "sreResp3": "Automate incident responses",
+        "sreResp4": "Manage error budget",
+        "sreResp5": "Conduct post-mortems and blameless retrospectives",
+        "sreResp6": "Eliminate repetitive operational work",
+        "sreFocus": "Main focus:",
+        "sreFocusText": "Reliability, availability and performance of production systems.",
+        
+        "devopsTitle": "DevOps Engineer",
+        "devopsDesc": "DevOps is the enabler of continuous delivery flow. I work as a bridge between development and operations, accelerating value delivery with safety.",
+        "devopsResponsibilities": "Main responsibilities:",
+        "devopsResp1": "Build and maintain CI/CD pipelines",
+        "devopsResp2": "Implement Infrastructure as Code",
+        "devopsResp3": "Automate build, test and deploy processes",
+        "devopsResp4": "Manage repositories and artifacts",
+        "devopsResp5": "Implement DevSecOps practices",
+        "devopsResp6": "Optimize the development lifecycle",
+        "devopsFocus": "Main focus:",
+        "devopsFocusText": "Speed, automation and collaboration between development and operations.",
+        
+        "cloudTitle": "Cloud Engineer",
+        "cloudDesc": "The Cloud Engineer is the architect of cloud infrastructure. My experience includes designing, implementing and managing scalable and secure cloud environments.",
+        "cloudResponsibilities": "Main responsibilities:",
+        "cloudResp1": "Design cloud architectures (AWS, Azure, GCP)",
+        "cloudResp2": "Manage compute, network and storage resources",
+        "cloudResp3": "Implement security and compliance in the cloud",
+        "cloudResp4": "Optimize costs and performance",
+        "cloudResp5": "Manage identity and access (IAM)",
+        "cloudResp6": "Implement backup and DR strategies",
+        "cloudFocus": "Main focus:",
+        "cloudFocusText": "Cloud infrastructure, security, cost-effectiveness and scalability.",
+        
+        "analogyTitle": "📋 How I work in practice:",
+        "analogyText1": "In my career, these roles complement each other. As an <strong>SRE</strong>, I ensure systems are reliable through proactive monitoring with Grafana, Loki and Zabbix. As a <strong>DevOps</strong>, I implement automation with Jenkins, Docker and Kubernetes to accelerate deliveries. And as a <strong>Cloud Engineer</strong>, I design and operate infrastructure on AWS, Azure and GCP to ensure scalability and security.",
+        "analogyText2": "This combination allows me not only to build robust systems, but also to ensure they are delivered quickly and operate reliably in cloud environments.",
+        
+        // Experience section
+        "experience": "Professional Experience (Timeline)",
+        "aliareRole": "Configuration Analyst",
+        "aliareDesc": "I work on cluster server management, focusing on containers using Docker and Docker Compose. I assist Development and Testing teams with demands related to Linux, infrastructure and automation. I work with monitoring and observability using Grafana, Promtail, Loki and Zabbix for metrics and alerts. I also perform configurations and restorations of Oracle and PostgreSQL databases, in addition to working in cloud environments, especially Azure. I develop Shell scripts for automation of internal routines and make adjustments and configurations in CI/CD pipelines using Jenkins.",
+        
+        "securityfirstRole": "Junior Cloud Analyst",
+        "securityfirstDesc": "I worked as an SRE in cloud and on-premise environments, focused on automation, stability and observability. I worked on Proxmox cluster management, Linux server administration and creation of automation routines to reduce operational effort. I was also responsible for implementing and maintaining dashboards and alerts in monitoring tools such as Grafana, Zabbix, New Relic, Datadog and Dynatrace, ensuring visibility and quick response to incidents.",
+        
+        "o2bRole": "Junior Cloud Analyst",
+        "o2bDesc": "Working as an SRE, focusing on installation, configuration and monitoring of servers in cloud environments. I use Zabbix and Grafana for observability and metrics, in addition to managing instances and resources on AWS and GCP platforms. I perform machine deployment, alert configuration and database administration according to environment needs. I also work with infrastructure versioning and automation using Git, GitHub, Docker and Kubernetes, with orchestration via Rancher.",
+        
+        "enjinRole": "IT Manager",
+        "enjinDesc": "Working as IT Manager, responsible for technical support (Help Desk) and network and server infrastructure. I performed preventive and corrective maintenance on the machine park, in addition to configuring and monitoring internal systems. I made adjustments to systems and databases, ensuring the stability and good performance of IT services. I was also responsible for organizing demands, tracking calls and ensuring the proper functioning of the company's technological resources.",
+        
+        "brascloudRole": "Systems Administrator I",
+        "brascloudDesc": "Working in systems administration and network infrastructure, focusing on maintenance and configuration of servers and equipment. Responsible for ensuring the proper functioning of the local network and providing technical support to users with less familiarity with technology, assisting in the use of systems and Windows environment. I performed preventive maintenance routines, incident resolution and general support in the company's IT demands.",
+        
+        "zeniRole": "IT Assistant",
+        "zeniDesc": "Working as IT Assistant, focusing on technical support and workstation maintenance. Responsible for formatting and configuring computers, managing the machine park and assisting users. I had the opportunity to learn and apply knowledge in Linux, Windows, FTP, Apache server and basic networking concepts, ensuring the proper functioning of systems and local infrastructure.",
+        
+        "copyvicRole": "Technical Assistant",
+        "copyvicDesc": "Working in maintenance and technical support of printers and copiers, including diagnosis, repair and equipment configuration. I also provided basic support in network and Windows and Linux operating systems, ensuring the connectivity of the company's internal devices. I was initially hired to work with 3D printers, but the project did not advance; nevertheless, I maintained focus on technical support and maintenance of the company's printing equipment.",
+        
+        "mascarelloRole": "Support Analyst",
+        "mascarelloDesc": "Working as IT Support Analyst, focusing on physical equipment maintenance and user assistance. Responsible for formatting and configuring computers, replacing parts and printer maintenance. I provided on-site technical support, ensuring the proper functioning of equipment and assisting users in daily demands.",
+        
+        "recommendationLetter": "Recommendation Letter",
+        "comingSoon": "(Coming soon)",
+        "downloadRecommendation": "Download Recommendation Letter",
+        
+        // Education section
+        "education": "Academic Education",
+        "utfprCourse": "Postgraduate in Computer Networks",
+        "utfprDesc": "Study of OSI/TCP-IP models, protocols (TCP, UDP, IP, HTTP, FTP), network topologies, connectivity between technologies, convergence between telecommunications and data, IoT and system interoperability.",
+        "fagCourse": "Bachelor in Information Systems",
+        "fagDesc": "Software development, project management, data analysis, information security, network and infrastructure administration, IT auditing and technological planning.",
+        "cnaCourse": "English",
+        "cnaDesc": "English language training with development of the four language skills: listening, speaking, reading and writing.",
+        "downloadCertificate": "Download Completion Certificate"
+      }
+    };
+
+    // Language switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const langButtons = document.querySelectorAll('.lang-btn');
+      let currentLang = 'pt';
+      
+      // Set initial language
+      setLanguage(currentLang);
+      
+      // Add click event listeners to language buttons
+      langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const lang = this.getAttribute('data-lang');
+          if (lang !== currentLang) {
+            currentLang = lang;
+            setLanguage(currentLang);
+            
+            // Update active button
+            langButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Update PDF download link based on language
+            const downloadLink = document.querySelector('#download a');
+            if (currentLang === 'en') {
+              downloadLink.href = 'Curriculo_Ansley_Donizeti_Gonçalves_English.pdf';
+              downloadLink.setAttribute('download', 'Curriculo_Ansley_Donizeti_Gonçalves_English.pdf');
+            } else {
+              downloadLink.href = 'Curriculo_Ansley_Donizeti_Gonçalves.pdf';
+              downloadLink.setAttribute('download', 'Curriculo_Ansley_Donizeti_Gonçalves.pdf');
+            }
+          }
+        });
+      });
+      
+      function setLanguage(lang) {
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+              element.value = translations[lang][key];
+            } else {
+              element.innerHTML = translations[lang][key];
+            }
+          }
+        });
+        
+        // Update page title
+        document.title = translations[lang].title;
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
+      }
+    });
+  </script>
 </body>
 </html>
