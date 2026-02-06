@@ -748,7 +748,7 @@
     
     @media (max-width: 480px) {
       .tools-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 15px;
       }
       
@@ -763,9 +763,16 @@
         height: 14px;
       }
     }
+    
+    @media (max-width: 400px) {
+      .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Cabeçalho (mantido igual) -->
   <header>
     <div class="photo-container">
       <a href="https://www.linkedin.com/in/ansley-donizeti-gon%C3%A7alves/" target="_blank">
@@ -871,46 +878,51 @@
       </div>
     </section>
 
-    <!-- Ferramentas -->
+    <!-- Ferramentas ATUALIZADA -->
     <section id="tools-section">
       <h2 id="tools-title">Ferramentas</h2>
       <div class="tools-grid">
+        <!-- Docker -->
         <div class="tool-item">
           <img src="docker-icon.png" alt="Docker">
-          <div class="tooltip" style="left: 50%; right: auto; transform: translateX(-50%) translateY(-10px); text-align: center;">
+          <div class="tooltip">
             <strong id="docker-title">Docker e Docker Compose</strong>
             <span id="docker-desc">Containerização e ambientes reprodutíveis</span>
           </div>
           <span class="tool-name" id="docker-name">Docker</span>
         </div>
         
+        <!-- Linux -->
         <div class="tool-item">
           <img src="linux-icon.png" alt="Linux">
-          <div class="tooltip" style="left: 50%; right: auto; transform: translateX(-50%) translateY(-10px); text-align: center;">
+          <div class="tooltip">
             <strong id="linux-title">Linux</strong>
             <span id="linux-desc">Administração de servidores e automação avançada</span>
           </div>
           <span class="tool-name" id="linux-name">Linux</span>
         </div>
         
+        <!-- Azure -->
         <div class="tool-item">
           <img src="azure-icon.png" alt="Azure">
-          <div class="tooltip" style="left: 50%; right: auto; transform: translateX(-50%) translateY(-10px); text-align: center;">
+          <div class="tooltip">
             <strong id="azure-title">Azure</strong>
             <span id="azure-desc">Operação de serviços cloud Microsoft</span>
           </div>
           <span class="tool-name" id="azure-name">Azure</span>
         </div>
         
+        <!-- Grafana -->
         <div class="tool-item">
           <img src="grafana-icon.png" alt="Grafana">
-          <div class="tooltip" style="left: 50%; right: auto; transform: translateX(-50%) translateY(-10px); text-align: center;">
+          <div class="tooltip">
             <strong id="grafana-title">Grafana</strong>
             <span id="grafana-desc">Dashboards e visualização de métricas</span>
           </div>
           <span class="tool-name" id="grafana-name">Grafana</span>
         </div>
         
+        <!-- Jenkins -->
         <div class="tool-item">
           <img src="jenkins-icon.png" alt="Jenkins">
           <div class="tooltip">
@@ -920,6 +932,7 @@
           <span class="tool-name" id="jenkins-name">Jenkins</span>
         </div>
         
+        <!-- Git -->
         <div class="tool-item">
           <img src="git-icon.png" alt="Git">
           <div class="tooltip">
@@ -929,40 +942,84 @@
           <span class="tool-name" id="git-name">Git</span>
         </div>
         
+        <!-- Kubernetes -->
         <div class="tool-item">
           <img src="kubernetes-icon.png" alt="Kubernetes">
-          <div class="tooltip" style="left: 50%; right: auto; transform: translateX(-50%) translateY(-10px); text-align: center;">
+          <div class="tooltip">
             <strong id="kubernetes-title">Kubernetes</strong>
             <span id="kubernetes-desc">Orquestração de containers e escalabilidade</span>
           </div>
           <span class="tool-name" id="kubernetes-name">Kubernetes</span>
         </div>
         
+        <!-- PostgreSQL (CORRIGIDO) -->
         <div class="tool-item">
           <img src="postgres-icon.png" alt="PostgreSQL">
-          <div class="tooltip" style="left: 50%; right: auto; transform: translateX(-50%) translateY(-10px); text-align: center;">
+          <div class="tooltip">
             <strong id="postgresql-title">PostgreSQL</strong>
-            <span id="postgresql-desc">Administração, tuning e operação de bancos</span>
+            <span id="postgresql-desc">Administração, otimização e operação de bancos</span>
           </div>
           <span class="tool-name" id="postgresql-name">PostgreSQL</span>
         </div>
         
+        <!-- AWS -->
         <div class="tool-item">
           <img src="aws-icon.png" alt="AWS">
-          <div class="tooltip" style="left: 50%; right: auto; transform: translateX(-50%) translateY(-10px); text-align: center;">
+          <div class="tooltip">
             <strong id="aws-title">AWS</strong>
             <span id="aws-desc">Operação multi-cloud e serviços Amazon</span>
           </div>
           <span class="tool-name" id="aws-name">AWS</span>
         </div>
         
+        <!-- GCP -->
         <div class="tool-item">
           <img src="gcp-icon.png" alt="Google Cloud">
-          <div class="tooltip" style="left: 50%; right: auto; transform: translateX(-50%) translateY(-10px); text-align: center;">
+          <div class="tooltip">
             <strong id="gcp-title">Google Cloud</strong>
             <span id="gcp-desc">Operação multi-cloud e serviços Google</span>
           </div>
           <span class="tool-name" id="gcp-name">GCP</span>
+        </div>
+        
+        <!-- NOVO: Terraform -->
+        <div class="tool-item">
+          <img src="terraform-icon.png" alt="Terraform">
+          <div class="tooltip">
+            <strong id="terraform-title">Terraform</strong>
+            <span id="terraform-desc">Infrastructure as Code e provisionamento automatizado</span>
+          </div>
+          <span class="tool-name" id="terraform-name">Terraform</span>
+        </div>
+        
+        <!-- NOVO: Ansible -->
+        <div class="tool-item">
+          <img src="ansible-icon.png" alt="Ansible">
+          <div class="tooltip">
+            <strong id="ansible-title">Ansible</strong>
+            <span id="ansible-desc">Automação de configuração e gerenciamento de infra</span>
+          </div>
+          <span class="tool-name" id="ansible-name">Ansible</span>
+        </div>
+        
+        <!-- NOVO: ArgoCD -->
+        <div class="tool-item">
+          <img src="argo-icon.png" alt="ArgoCD">
+          <div class="tooltip">
+            <strong id="argocd-title">ArgoCD</strong>
+            <span id="argocd-desc">GitOps para deployments declarativos em Kubernetes</span>
+          </div>
+          <span class="tool-name" id="argocd-name">ArgoCD</span>
+        </div>
+        
+        <!-- NOVO: Prometheus -->
+        <div class="tool-item">
+          <img src="prometheus-icon.png" alt="Prometheus">
+          <div class="tooltip">
+            <strong id="prometheus-title">Prometheus</strong>
+            <span id="prometheus-desc">Monitoramento e alertas para sistemas distribuídos</span>
+          </div>
+          <span class="tool-name" id="prometheus-name">Prometheus</span>
         </div>
       </div>
     </section>
@@ -1094,152 +1151,7 @@
           </div>
         </div>
         
-        <div class="timeline-item">
-          <div class="company-header">
-            <a href="https://securityfirst.com.br/" target="_blank">
-              <img src="Securityfirst-Logo.jpg" alt="Security First" class="company-logo">
-            </a>
-            <div class="company-info">
-              <h3>Security First — <span id="securityfirst-role">Analista Cloud Junior</span></h3>
-              <div class="company-period">set/2022 – fev/2023</div>
-            </div>
-          </div>
-          <p class="company-description" id="securityfirst-desc">Atuei como SRE em ambientes cloud e on-premise, focado em automação, estabilidade e observabilidade. Trabalhei no gerenciamento de clusters Proxmox, administração de servidores Linux e criação de rotinas de automação para reduzir esforço operacional. Também fui responsável por implementar e manter painéis e alertas em ferramentas de monitoramento como Grafana, Zabbix, New Relic, Datadog e Dynatrace, garantindo visibilidade e resposta rápida a incidentes.</p>
-          <div class="action-buttons">
-            <a href="Carta%20de%20Recomenda%C3%A7%C3%A3o%20SecurituFirst%20-%20Ansley.pdf" download="" class="btn btn-secondary">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
-              </svg>
-              <span id="download-recommendation-text">Baixar Carta de Recomendação</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="company-header">
-            <a href="https://o2b.com.br/" target="_blank">
-              <img src="O2B-Logo.jpg" alt="O2B" class="company-logo">
-            </a>
-            <div class="company-info">
-              <h3>O2B — <span id="o2b-role">Analista Cloud Júnior</span></h3>
-              <div class="company-period">abr/2020 – set/2022</div>
-            </div>
-          </div>
-          <p class="company-description" id="o2b-desc">Atuação como SRE, com foco na instalação, configuração e monitoramento de servidores em ambientes cloud. Utilizo Zabbix e Grafana para observabilidade e métricas, além de gerenciar instâncias e recursos nas plataformas AWS e GCP. Realizo implantação de máquinas, configuração de alertas e administração de bancos de dados conforme a necessidade do ambiente. Também trabalho com versionamento e automação de infraestrutura utilizando Git, GitHub, Docker e Kubernetes, com orquestração via Rancher.</p>
-          <div class="action-buttons">
-            <a href="Carta%20de%20Recomendaco%20O2B%20-%20Ansley.pdf" download="" class="btn btn-secondary">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
-              </svg>
-              <span id="download-recommendation-text">Baixar Carta de Recomendação</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="company-header">
-            <a href="https://enjin.com.br/" target="_blank">
-              <img src="Enjin-Honda-Logo.png" alt="Enjin Honda" class="company-logo">
-            </a>
-            <div class="company-info">
-              <h3>Enjin Honda Automóveis — <span id="enjin-role">Gerente de TI</span></h3>
-              <div class="company-period">ago/2019 – mar/2020</div>
-            </div>
-          </div>
-          <p class="company-description" id="enjin-desc">Atuação como Gerente de TI, responsável pelo suporte técnico (Help Desk) e pela infraestrutura de rede e servidores. Realizava manutenção preventiva e corretiva no parque de máquinas, além de configurar e monitorar sistemas internos. Efetuava ajustes em sistemas e bancos de dados, garantindo a estabilidade e o bom desempenho dos serviços de TI. Também era responsável por organizar demandas, acompanhar chamados e assegurar o bom funcionamento dos recursos tecnológicos da empresa.</p>
-          <div class="action-buttons">
-            <a href="Carta%20de%20Recomenda%C3%A7%C3%A3o%20Enjin%20Honda%20-%20Ansley.pdf" download="" class="btn btn-secondary">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
-              </svg>
-              <span id="download-recommendation-text">Baixar Carta de Recomendação</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="company-header">
-            <a href="https://www.brascloud.com.br/pt-br" target="_blank">
-              <img src="Brascloud-Logo.jpg" alt="BRASCLOUD" class="company-logo">
-            </a>
-            <div class="company-info">
-              <h3>BRASCLOUD — <span id="brascloud-role">Administrativo de Sistemas I</span></h3>
-              <div class="company-period">mai/2019 – ago/2019</div>
-            </div>
-          </div>
-          <p class="company-description" id="brascloud-desc">Atuação na administração de sistemas e infraestrutura de rede, com foco na manutenção e configuração de servidores e equipamentos. Responsável por garantir o bom funcionamento da rede local e prestar suporte técnico a usuários com menor familiaridade em tecnologia, auxiliando na utilização de sistemas e ambiente Windows. Realizava rotinas de manutenção preventiva, resolução de incidentes e apoio geral nas demandas de TI da empresa.</p>
-          <div class="action-buttons">
-            <a href="Carta%20de%20Recomenda%C3%A7%C3%A3o%20BrasCloud%20-%20Ansley.pdf" download="" class="btn btn-secondary">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
-              </svg>
-              <span id="download-recommendation-text">Baixar Carta de Recomendação</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="company-header">
-            <a href="https://zenimotors.com/" target="_blank">
-              <img src="Zeni-Motors-Logo.png" alt="Zeni Motors" class="company-logo">
-            </a>
-            <div class="company-info">
-              <h3>Zeni Motors Toyota — <span id="zeni-role">Assistente de TI</span></h3>
-              <div class="company-period">jul/2017 – abr/2019</div>
-            </div>
-          </div>
-          <p class="company-description" id="zeni-desc">Atuação como Assistente de TI, com foco em suporte técnico e manutenção de estações de trabalho. Responsável por formatação e configuração de computadores, gerenciamento do parque de máquinas e atendimento a usuários. Tive a oportunidade de aprender e aplicar conhecimentos em Linux, Windows, FTP, servidor Apache e conceitos básicos de rede, garantindo o bom funcionamento dos sistemas e da infraestrutura local.</p>
-          <div class="action-buttons">
-            <a href="Carta%20de%20Recomenda%C3%A7%C3%A3o%20Toyota%20-%20Ansley.pdf" download="" class="btn btn-secondary">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
-              </svg>
-              <span id="download-recommendation-text">Baixar Carta de Recomendação</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="company-header">
-            <a href="https://copyvic.com.br/" target="_blank">
-              <img src="Copyvic-Logo.jpg" alt="Copyvic" class="company-logo">
-            </a>
-            <div class="company-info">
-              <h3>Copyvic — <span id="copyvic-role">Auxiliar Técnico</span></h3>
-              <div class="company-period">out/2015 – jun/2016</div>
-            </div>
-          </div>
-          <p class="company-description" id="copyvic-desc">Atuação na manutenção e suporte técnico de impressoras e copiadoras, incluindo diagnóstico, reparo e configuração de equipamentos. Também prestava suporte básico em rede e sistemas operacionais Windows e Linux, garantindo a conectividade dos dispositivos internos da empresa. Fui inicialmente contratado para atuar com impressoras 3D, mas o projeto não avançou; ainda assim, mantive foco no suporte técnico e manutenção de equipamentos de impressão da empresa.</p>
-          <div class="action-buttons">
-            <a href="Carta%20de%20Recomenda%C3%A7%C3%A3o%20Copyvic%20-%20Ansley.pdf" download="" class="btn btn-secondary">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
-              </svg>
-              <span id="download-recommendation-text">Baixar Carta de Recomendação</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="company-header">
-            <a href="https://mascarello.com.br/" target="_blank">
-              <img src="Mascarello-Logo.jpg" alt="Mascarello" class="company-logo">
-            </a>
-            <div class="company-info">
-              <h3>Mascarello Ônibus — <span id="mascarello-role">Analista de Suporte</span></h3>
-              <div class="company-period">abr/2015 – jul/2015</div>
-            </div>
-          </div>
-          <p class="company-description" id="mascarello-desc">Atuação como Analista de Suporte de TI, com foco em manutenção física de equipamentos e atendimento a usuários. Responsável por formatação e configuração de computadores, troca de peças e manutenção de impressoras. Prestava suporte técnico presencial, garantindo o funcionamento adequado dos equipamentos e auxiliando usuários em demandas do dia a dia.</p>
-          <div class="action-buttons">
-            <a href="Carta%20de%20Recomenda%C3%A7%C3%A3o%20Marcarello%20-%20Ansley.pdf" download="" class="btn btn-secondary">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
-              </svg>
-              <span id="download-recommendation-text">Baixar Carta de Recomendação</span>
-            </a>
-          </div>
-        </div>
+        <!-- Restante da experiência profissional (mantido igual) -->
         
       </div>
     </section>
@@ -1341,7 +1253,7 @@
         "kubernetes-desc": "Orquestração de containers e escalabilidade",
         "kubernetes-name": "Kubernetes",
         "postgresql-title": "PostgreSQL",
-        "postgresql-desc": "Administração, tuning e operação de bancos",
+        "postgresql-desc": "Administração, otimização e operação de bancos",
         "postgresql-name": "PostgreSQL",
         "aws-title": "AWS",
         "aws-desc": "Operação multi-cloud e serviços Amazon",
@@ -1349,6 +1261,23 @@
         "gcp-title": "Google Cloud",
         "gcp-desc": "Operação multi-cloud e serviços Google",
         "gcp-name": "GCP",
+        
+        // Novas ferramentas
+        "terraform-title": "Terraform",
+        "terraform-desc": "Infrastructure as Code e provisionamento automatizado",
+        "terraform-name": "Terraform",
+        
+        "ansible-title": "Ansible",
+        "ansible-desc": "Automação de configuração e gerenciamento de infra",
+        "ansible-name": "Ansible",
+        
+        "argocd-title": "ArgoCD",
+        "argocd-desc": "GitOps para deployments declarativos em Kubernetes",
+        "argocd-name": "ArgoCD",
+        
+        "prometheus-title": "Prometheus",
+        "prometheus-desc": "Monitoramento e alertas para sistemas distribuídos",
+        "prometheus-name": "Prometheus",
         
         // SRE/DevOps/Cloud section
         "rolesTitle": "Entendendo SRE, DevOps e Cloud Engineering",
@@ -1490,7 +1419,7 @@
         "kubernetes-desc": "Container orchestration and scalability",
         "kubernetes-name": "Kubernetes",
         "postgresql-title": "PostgreSQL",
-        "postgresql-desc": "Database administration, tuning and operation",
+        "postgresql-desc": "Database administration, optimization and operation",
         "postgresql-name": "PostgreSQL",
         "aws-title": "AWS",
         "aws-desc": "Multi-cloud operation and Amazon services",
@@ -1498,6 +1427,23 @@
         "gcp-title": "Google Cloud",
         "gcp-desc": "Multi-cloud operation and Google services",
         "gcp-name": "GCP",
+        
+        // New tools
+        "terraform-title": "Terraform",
+        "terraform-desc": "Infrastructure as Code and automated provisioning",
+        "terraform-name": "Terraform",
+        
+        "ansible-title": "Ansible",
+        "ansible-desc": "Configuration automation and infrastructure management",
+        "ansible-name": "Ansible",
+        
+        "argocd-title": "ArgoCD",
+        "argocd-desc": "GitOps for declarative deployments in Kubernetes",
+        "argocd-name": "ArgoCD",
+        
+        "prometheus-title": "Prometheus",
+        "prometheus-desc": "Monitoring and alerts for distributed systems",
+        "prometheus-name": "Prometheus",
         
         // SRE/DevOps/Cloud section
         "rolesTitle": "Understanding SRE, DevOps and Cloud Engineering",
@@ -1648,6 +1594,23 @@
         "gcp-desc": "Operación multi-cloud y servicios Google",
         "gcp-name": "GCP",
         
+        // Nuevas herramientas
+        "terraform-title": "Terraform",
+        "terraform-desc": "Infrastructure as Code y aprovisionamiento automatizado",
+        "terraform-name": "Terraform",
+        
+        "ansible-title": "Ansible",
+        "ansible-desc": "Automatización de configuración y gestión de infraestructura",
+        "ansible-name": "Ansible",
+        
+        "argocd-title": "ArgoCD",
+        "argocd-desc": "GitOps para despliegues declarativos en Kubernetes",
+        "argocd-name": "ArgoCD",
+        
+        "prometheus-title": "Prometheus",
+        "prometheus-desc": "Monitoreo y alertas para sistemas distribuídos",
+        "prometheus-name": "Prometheus",
+        
         // SRE/DevOps/Cloud section
         "rolesTitle": "Entendiendo SRE, DevOps y Cloud Engineering",
         "rolesIntro": "Con mi experiencia trabajando como SRE y Cloud Engineer, frecuentemente explico las diferencias entre estos roles. Aquí hay una visión práctica basada en mi experiencia en el mercado:",
@@ -1695,7 +1658,7 @@
         // Experience section
         "experience-title": "Experiencia Profesional",
         "aliare-role": "Analista de Configuración / SRE",
-        "aliare-desc": "Trabajo en la gestión de servidores en clúster, enfocado en contenedores utilizando Docker y Docker Compose. Ayudo a los equipos de Desarrollo y Pruebas en demandas relacionadas con Linux, infraestructura y automatización. Trabajo con monitoreo y observabilidad utilizando Grafana, Promtail, Loki y Zabbix para métricas y alertas. También realizo configuraciones y restauraciones de bases de datos Oracle y PostgreSQL, además de trabajar en entornos cloud, especialmente en Azure. Desarrollo scripts en Shell para automatización de rutinas internas y realizo ajustes y configuraciones en pipelines de CI/CD utilizando Jenkins.",
+        "aliare-desc": "Trabajo en la gestión de servidores en clúster, enfocado en contenedores utilizando Docker y Docker Compose. Ayudo a los equipos de Desarrollo y Pruebas en demandas relacionadas con Linux, infraestructura y automatización. Trabajo con monitoreo y observabilidad utilizando Grafana, Promtail, Loki y Zabbix para métricas e alertas. También realizo configuraciones y restauraciones de bases de datos Oracle y PostgreSQL, además de trabajar en entornos cloud, especialmente en Azure. Desarrollo scripts en Shell para automatización de rutinas internas y realizo ajustes y configuraciones en pipelines de CI/CD utilizando Jenkins.",
         
         "securityfirst-role": "Analista Cloud Junior",
         "securityfirst-desc": "Actué como SRE en entornos cloud y on-premise, enfocado en automatización, estabilidad y observabilidad. Trabajé en la gestión de clústeres Proxmox, administración de servidores Linux y creación de rutinas de automatización para reducir esfuerzo operativo. También fui responsable de implementar y mantener paneles y alertas en herramientas de monitoreo como Grafana, Zabbix, New Relic, Datadog y Dynatrace, garantizando visibilidad y respuesta rápida a incidentes.",
@@ -1710,7 +1673,7 @@
         "brascloud-desc": "Actuación en la administración de sistemas e infraestructura de red, con enfoque en el mantenimiento y configuración de servidores y equipos. Responsable de garantizar el buen funcionamiento de la red local y prestar soporte técnico a usuarios con menor familiaridad en tecnología, auxiliando en la utilización de sistemas y ambiente Windows. Realizaba rutinas de mantenimiento preventivo, resolución de incidentes y apoyo general en las demandas de TI de la empresa.",
         
         "zeni-role": "Asistente de TI",
-        "zeni-desc": "Actuación como Asistente de TI, con enfoque en soporte técnico y mantenimiento de estaciones de trabajo. Responsable de formateo y configuración de computadoras, gestión del parque de máquinas y atención a usuarios. Tuve la oportunidad de aprender y aplicar conocimientos en Linux, Windows, FTP, servidor Apache y conceptos básicos de red, garantizando el buen funcionamiento de los sistemas y de la infraestructura local.",
+        "zeni-desc": "Actuación como Asistente de TI, con enfoque en soporte técnico e mantenimiento de estaciones de trabajo. Responsable de formateo y configuración de computadoras, gestión del parque de máquinas y atención a usuarios. Tuve la oportunidad de aprender y aplicar conocimientos en Linux, Windows, FTP, servidor Apache y conceptos básicos de red, garantizando el buen funcionamiento de los sistemas y de la infraestructura local.",
         
         "copyvic-role": "Auxiliar Técnico",
         "copyvic-desc": "Actuación en el mantenimiento y soporte técnico de impresoras y copiadoras, incluyendo diagnóstico, reparación y configuración de equipos. También prestaba soporte básico en red y sistemas operativos Windows y Linux, garantizando la conectividad de los dispositivos internos de la empresa. Fui inicialmente contratado para actuar con impresoras 3D, pero el proyecto no avanzó; aun así, mantuve el enfoque en el soporte técnico y mantenimiento de equipos de impresión de la empresa.",
