@@ -403,6 +403,24 @@
       line-height: 1.7;
     }
     
+    /* Competências por Vaga */
+    .job-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0 20px;
+    }
+    
+    .skill-tag {
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    
     /* Buttons */
     .action-buttons {
       display: flex;
@@ -732,6 +750,15 @@
         height: 40px;
       }
       
+      .job-skills {
+        gap: 6px;
+      }
+      
+      .skill-tag {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+      }
+      
       .action-buttons {
         flex-direction: column;
       }
@@ -952,7 +979,7 @@
           <span class="tool-name" id="kubernetes-name">Kubernetes</span>
         </div>
         
-        <!-- PostgreSQL (CORRIGIDO) -->
+        <!-- PostgreSQL -->
         <div class="tool-item">
           <img src="postgres-icon.png" alt="PostgreSQL">
           <div class="tooltip">
@@ -982,7 +1009,7 @@
           <span class="tool-name" id="gcp-name">GCP</span>
         </div>
         
-        <!-- NOVO: Terraform -->
+        <!-- Terraform -->
         <div class="tool-item">
           <img src="terraform-icon.png" alt="Terraform">
           <div class="tooltip">
@@ -992,7 +1019,7 @@
           <span class="tool-name" id="terraform-name">Terraform</span>
         </div>
         
-        <!-- NOVO: Ansible -->
+        <!-- Ansible -->
         <div class="tool-item">
           <img src="ansible-icon.png" alt="Ansible">
           <div class="tooltip">
@@ -1002,7 +1029,7 @@
           <span class="tool-name" id="ansible-name">Ansible</span>
         </div>
         
-        <!-- NOVO: ArgoCD -->
+        <!-- ArgoCD -->
         <div class="tool-item">
           <img src="argo-icon.png" alt="ArgoCD">
           <div class="tooltip">
@@ -1012,7 +1039,7 @@
           <span class="tool-name" id="argocd-name">ArgoCD</span>
         </div>
         
-        <!-- NOVO: Prometheus -->
+        <!-- Prometheus -->
         <div class="tool-item">
           <img src="prometheus-icon.png" alt="Prometheus">
           <div class="tooltip">
@@ -1141,6 +1168,23 @@
             </div>
           </div>
           <p class="company-description" id="aliare-desc">Atuo no gerenciamento de servidores em cluster, com foco em containers utilizando Docker e Docker Compose. Auxilio as equipes de Desenvolvimento e Teste em demandas relacionadas a Linux, infraestrutura e automação. Trabalho com monitoramento e observabilidade utilizando Grafana, Promtail, Loki e Zabbix para métricas e alertas. Também realizo configurações e restaurações de bancos de dados Oracle e PostgreSQL, além de atuar em ambientes cloud, especialmente na Azure. Desenvolvo scripts em Shell para automação de rotinas internas e realizo ajustes e configurações em pipelines de CI/CD utilizando Jenkins.</p>
+          
+          <!-- Competências Aliare -->
+          <div class="job-skills">
+            <span class="skill-tag">SRE</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Oracle</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Shell Script</span>
+            <span class="skill-tag">Zabbix</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+          
           <div class="action-buttons">
             <button class="btn btn-secondary btn-disabled">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1155,13 +1199,31 @@
         <!-- Security First -->
         <div class="timeline-item">
           <div class="company-header">
-            <img src="Securityfirst-Logo.jpg" alt="Security First" class="company-logo">
+            <a href="https://securityfirst.com.br/" target="_blank">
+              <img src="Securityfirst-Logo.jpg" alt="Security First" class="company-logo">
+            </a>
             <div class="company-info">
               <h3>Security First — <span id="securityfirst-role">Analista Cloud Junior</span></h3>
               <div class="company-period">ago/2022 – jan/2023</div>
             </div>
           </div>
           <p class="company-description" id="securityfirst-desc">Atuei como SRE em ambientes cloud e on-premise, focado em automação, estabilidade e observabilidade. Trabalhei no gerenciamento de clusters Proxmox, administração de servidores Linux e criação de rotinas de automação para reduzir esforço operacional. Também fui responsável por implementar e manter painéis e alertas em ferramentas de monitoramento como Grafana, Zabbix, New Relic, Datadog e Dynatrace, garantindo visibilidade e resposta rápida a incidentes.</p>
+          
+          <!-- Competências Security First -->
+          <div class="job-skills">
+            <span class="skill-tag">SRE</span>
+            <span class="skill-tag">Proxmox</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">Zabbix</span>
+            <span class="skill-tag">Datadog</span>
+            <span class="skill-tag">New Relic</span>
+            <span class="skill-tag">Dynatrace</span>
+            <span class="skill-tag">Automação</span>
+            <span class="skill-tag">Observabilidade</span>
+            <span class="skill-tag">Shell Script</span>
+          </div>
+          
           <div class="action-buttons">
             <a href="Carta de Recomendação SecurituFirst - Ansley.pdf" download="Carta-de-Recomendacao-SecurityFirst-Ansley.pdf" class="btn btn-secondary">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1175,13 +1237,32 @@
         <!-- O2B -->
         <div class="timeline-item">
           <div class="company-header">
-            <img src="O2B-Logo.jpg" alt="O2B" class="company-logo">
+            <a href="https://o2b.com.br/" target="_blank">
+              <img src="O2B-Logo.jpg" alt="O2B" class="company-logo">
+            </a>
             <div class="company-info">
               <h3>O2B — <span id="o2b-role">Analista Cloud Júnior</span></h3>
               <div class="company-period">jun/2022 – ago/2022</div>
             </div>
           </div>
           <p class="company-description" id="o2b-desc">Atuação como SRE, com foco na instalação, configuração e monitoramento de servidores em ambientes cloud. Utilizo Zabbix e Grafana para observabilidade e métricas, além de gerenciar instâncias e recursos nas plataformas AWS e GCP. Realizo implantação de máquinas, configuração de alertas e administração de bancos de dados conforme a necessidade do ambiente. Também trabalho com versionamento e automação de infraestrutura utilizando Git, GitHub, Docker e Kubernetes, com orquestração via Rancher.</p>
+          
+          <!-- Competências O2B -->
+          <div class="job-skills">
+            <span class="skill-tag">SRE</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">GCP</span>
+            <span class="skill-tag">Zabbix</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Rancher</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Automação</span>
+          </div>
+          
           <div class="action-buttons">
             <a href="Carta de Recomendaco O2B - Ansley.pdf" download="Carta-de-Recomendacao-O2B-Ansley.pdf" class="btn btn-secondary">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1195,13 +1276,30 @@
         <!-- Enjin -->
         <div class="timeline-item">
           <div class="company-header">
-            <img src="Enjin-Honda-Logo.png" alt="Enjin Honda" class="company-logo">
+            <a href="https://www.enjin.com.br/" target="_blank">
+              <img src="Enjin-Honda-Logo.png" alt="Enjin Honda" class="company-logo">
+            </a>
             <div class="company-info">
               <h3>Enjin Honda — <span id="enjin-role">Gerente de TI</span></h3>
               <div class="company-period">ago/2021 – fev/2022</div>
             </div>
           </div>
           <p class="company-description" id="enjin-desc">Atuação como Gerente de TI, responsável pelo suporte técnico (Help Desk) e pela infraestrutura de rede e servidores. Realizava manutenção preventiva e corretiva no parque de máquinas, além de configurar e monitorar sistemas internos. Efetuava ajustes em sistemas e bancos de dados, garantindo a estabilidade e o bom desempenho dos serviços de TI. Também era responsável por organizar demandas, acompanhar chamados e assegurar o bom funcionamento dos recursos tecnológicos da empresa.</p>
+          
+          <!-- Competências Enjin -->
+          <div class="job-skills">
+            <span class="skill-tag">Gestão de TI</span>
+            <span class="skill-tag">Help Desk</span>
+            <span class="skill-tag">Infraestrutura</span>
+            <span class="skill-tag">Redes</span>
+            <span class="skill-tag">Servidores</span>
+            <span class="skill-tag">Manutenção</span>
+            <span class="skill-tag">Bancos de Dados</span>
+            <span class="skill-tag">Suporte Técnico</span>
+            <span class="skill-tag">Windows</span>
+            <span class="skill-tag">Linux</span>
+          </div>
+          
           <div class="action-buttons">
             <a href="Carta de Recomendação Enjin Honda - Ansley.pdf" download="Carta-de-Recomendacao-Enjin-Honda-Ansley.pdf" class="btn btn-secondary">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1215,13 +1313,29 @@
         <!-- Brascloud -->
         <div class="timeline-item">
           <div class="company-header">
-            <img src="Brascloud-Logo.jpg" alt="Brascloud" class="company-logo">
+            <a href="https://www.esferica.com.br/brascloud/" target="_blank">
+              <img src="Brascloud-Logo.jpg" alt="Brascloud" class="company-logo">
+            </a>
             <div class="company-info">
               <h3>Brascloud — <span id="brascloud-role">Administrativo de Sistemas I</span></h3>
               <div class="company-period">jan/2021 – ago/2021</div>
             </div>
           </div>
           <p class="company-description" id="brascloud-desc">Atuação na administração de sistemas e infraestrutura de rede, com foco na manutenção e configuração de servidores e equipamentos. Responsável por garantir o bom funcionamento da rede local e prestar suporte técnico a usuários com menor familiaridade em tecnologia, auxiliando na utilização de sistemas e ambiente Windows. Realizava rotinas de manutenção preventiva, resolução de incidentes e apoio geral nas demandas de TI da empresa.</p>
+          
+          <!-- Competências Brascloud -->
+          <div class="job-skills">
+            <span class="skill-tag">Administração de Sistemas</span>
+            <span class="skill-tag">Redes</span>
+            <span class="skill-tag">Servidores</span>
+            <span class="skill-tag">Manutenção</span>
+            <span class="skill-tag">Suporte Técnico</span>
+            <span class="skill-tag">Windows</span>
+            <span class="skill-tag">Infraestrutura</span>
+            <span class="skill-tag">Resolução de Incidentes</span>
+            <span class="skill-tag">Help Desk</span>
+          </div>
+          
           <div class="action-buttons">
             <a href="Carta de Recomendação BrasCloud - Ansley.pdf" download="Carta-de-Recomendacao-Brascloud-Ansley.pdf" class="btn btn-secondary">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1232,16 +1346,33 @@
           </div>
         </div>
         
-        <!-- Zeni Soluções -->
+        <!-- Zeni Motors -->
         <div class="timeline-item">
           <div class="company-header">
-            <img src="Zeni-Motors-Logo.png" alt="Zeni Motors" class="company-logo">
+            <a href="https://zenimotors.com/" target="_blank">
+              <img src="Zeni-Motors-Logo.png" alt="Zeni Motors" class="company-logo">
+            </a>
             <div class="company-info">
-              <h3>Zeni Soluções — <span id="zeni-role">Assistente de TI</span></h3>
+              <h3>Zeni Motors — <span id="zeni-role">Assistente de TI</span></h3>
               <div class="company-period">jun/2020 – jan/2021</div>
             </div>
           </div>
           <p class="company-description" id="zeni-desc">Atuação como Assistente de TI, com foco em suporte técnico e manutenção de estações de trabalho. Responsável por formatação e configuração de computadores, gerenciamento do parque de máquinas e atendimento a usuários. Tive a oportunidade de aprender e aplicar conhecimentos em Linux, Windows, FTP, servidor Apache e conceitos básicos de rede, garantindo o bom funcionamento dos sistemas e da infraestrutura local.</p>
+          
+          <!-- Competências Zeni Motors -->
+          <div class="job-skills">
+            <span class="skill-tag">Suporte Técnico</span>
+            <span class="skill-tag">Manutenção</span>
+            <span class="skill-tag">Windows</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">FTP</span>
+            <span class="skill-tag">Apache</span>
+            <span class="skill-tag">Redes</span>
+            <span class="skill-tag">Help Desk</span>
+            <span class="skill-tag">Infraestrutura</span>
+            <span class="skill-tag">Formatação</span>
+          </div>
+          
           <div class="action-buttons">
             <a href="Carta de Recomendação Toyota - Ansley.pdf" download="Carta-de-Recomendacao-Toyota-Ansley.pdf" class="btn btn-secondary">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1255,13 +1386,29 @@
         <!-- Copyvic -->
         <div class="timeline-item">
           <div class="company-header">
-            <img src="Copyvic-Logo.jpg" alt="Copyvic" class="company-logo">
+            <a href="https://copyvic.com.br/" target="_blank">
+              <img src="Copyvic-Logo.jpg" alt="Copyvic" class="company-logo">
+            </a>
             <div class="company-info">
               <h3>Copyvic — <span id="copyvic-role">Auxiliar Técnico</span></h3>
               <div class="company-period">jun/2019 – jun/2020</div>
             </div>
           </div>
           <p class="company-description" id="copyvic-desc">Atuação na manutenção e suporte técnico de impressoras e copiadoras, incluindo diagnóstico, reparo e configuração de equipamentos. Também prestava suporte básico em rede e sistemas operacionais Windows e Linux, garantindo a conectividade dos dispositivos internos da empresa. Fui inicialmente contratado para atuar com impressoras 3D, mas o projeto não avançou; ainda assim, mantive foco no suporte técnico e manutenção de equipamentos de impressão da empresa.</p>
+          
+          <!-- Competências Copyvic -->
+          <div class="job-skills">
+            <span class="skill-tag">Manutenção</span>
+            <span class="skill-tag">Suporte Técnico</span>
+            <span class="skill-tag">Impressoras</span>
+            <span class="skill-tag">Copiadoras</span>
+            <span class="skill-tag">Windows</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Redes</span>
+            <span class="skill-tag">Diagnóstico</span>
+            <span class="skill-tag">Reparo</span>
+          </div>
+          
           <div class="action-buttons">
             <a href="Carta de Recomendação Copyvic - Ansley.pdf" download="Carta-de-Recomendacao-Copyvic-Ansley.pdf" class="btn btn-secondary">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1275,13 +1422,28 @@
         <!-- Mascarello -->
         <div class="timeline-item">
           <div class="company-header">
-            <img src="Mascarello-Logo.jpg" alt="Mascarello" class="company-logo">
+            <a href="https://mascarello.com.br/" target="_blank">
+              <img src="Mascarello-Logo.jpg" alt="Mascarello" class="company-logo">
+            </a>
             <div class="company-info">
               <h3>Mascarello — <span id="mascarello-role">Analista de Suporte</span></h3>
               <div class="company-period">mar/2019 – jun/2019</div>
             </div>
           </div>
           <p class="company-description" id="mascarello-desc">Atuação como Analista de Suporte de TI, com foco em manutenção física de equipamentos e atendimento a usuários. Responsável por formatação e configuração de computadores, troca de peças e manutenção de impressoras. Prestava suporte técnico presencial, garantindo o funcionamento adequado dos equipamentos e auxiliando usuários em demandas do dia a dia.</p>
+          
+          <!-- Competências Mascarello -->
+          <div class="job-skills">
+            <span class="skill-tag">Suporte Técnico</span>
+            <span class="skill-tag">Manutenção</span>
+            <span class="skill-tag">Hardware</span>
+            <span class="skill-tag">Formatação</span>
+            <span class="skill-tag">Impressoras</span>
+            <span class="skill-tag">Windows</span>
+            <span class="skill-tag">Atendimento</span>
+            <span class="skill-tag">Help Desk</span>
+          </div>
+          
           <div class="action-buttons">
             <a href="Carta de Recomendação Marcarello - Ansley.pdf" download="Carta-de-Recomendacao-Mascarello-Ansley.pdf" class="btn btn-secondary">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1796,11 +1958,11 @@
         
         // Experience section
         "experience-title": "Experiencia Profesional",
-        "aliare-role": "Analista de Configuración / SRE",
+        "aliare-role": "Analista de Configuração / SRE",
         "aliare-desc": "Trabajo en la gestión de servidores en clúster, enfocado en contenedores utilizando Docker y Docker Compose. Ayudo a los equipos de Desarrollo y Pruebas en demandas relacionadas con Linux, infraestructura y automatización. Trabajo con monitoreo y observabilidad utilizando Grafana, Promtail, Loki y Zabbix para métricas e alertas. También realizo configuraciones y restauraciones de bases de datos Oracle y PostgreSQL, además de trabajar en entornos cloud, especialmente en Azure. Desarrollo scripts en Shell para automatización de rutinas internas y realizo ajustes y configuraciones en pipelines de CI/CD utilizando Jenkins.",
         
         "securityfirst-role": "Analista Cloud Junior",
-        "securityfirst-desc": "Actué como SRE en entornos cloud y on-premise, enfocado en automatización, estabilidad y observabilidad. Trabajé en la gestión de clústeres Proxmox, administración de servidores Linux y creación de rutinas de automatización para reducir esfuerzo operivo. También fui responsable de implementar y mantener paneles y alertas en herramientas de monitoreo como Grafana, Zabbix, New Relic, Datadog y Dynatrace, garantizando visibilidad y respuesta rápida a incidentes.",
+        "securityfirst-desc": "Actué como SRE en entornos cloud y on-premise, enfocado en automatización, estabilidad y observabilidad. Trabajé en la gestión de clústeres Proxmox, administración de servidores Linux y creación de rutinas de automatización para reducir esfuerzo operativo. También fui responsable de implementar y mantener paneles y alertas en herramientas de monitoreo como Grafana, Zabbix, New Relic, Datadog y Dynatrace, garantizando visibilidad y respuesta rápida a incidentes.",
         
         "o2b-role": "Analista Cloud Júnior",
         "o2b-desc": "Actuación como SRE, con enfoque en la instalación, configuración y monitoreo de servidores en entornos cloud. Utilizo Zabbix y Grafana para observabilidad y métricas, además de gestionar instancias y recursos en las plataformas AWS y GCP. Realizo despliegue de máquinas, configuración de alertas y administración de bases de datos según la necesidad del entorno. También trabajo con versionamiento y automatización de infraestructura utilizando Git, GitHub, Docker y Kubernetes, con orquestación vía Rancher.",
