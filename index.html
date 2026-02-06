@@ -553,6 +553,7 @@
       font-size: 0.95rem;
     }
     
+    /* Analogy Box - Estilo Corrigido */
     .analogy-box {
       background: rgba(59, 130, 246, 0.1);
       border: 1px solid rgba(59, 130, 246, 0.3);
@@ -565,6 +566,21 @@
       color: #3b82f6;
       font-size: 1.2rem;
       margin-bottom: 15px;
+    }
+    
+    .analogy-content {
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    
+    .analogy-content:last-child {
+      margin-bottom: 0;
+    }
+    
+    .analogy-content strong {
+      color: var(--neon);
+      font-weight: 600;
     }
     
     /* Education Section */
@@ -1039,10 +1055,15 @@
         </div>
       </div>
       
+      <!-- Seção Analogy refatorada -->
       <div class="analogy-box">
         <h4 id="analogy-title">📋 Como atuo na prática:</h4>
-        <p id="analogy-text1"Na minha trajetória, essas funções se complementam. Como <strong>SRE</strong>, garanto que os sistemas estejam confiáveis através de monitoramento proativo com Grafana, Loki e Zabbix. Como <strong>DevOps</strong>, implemento automação com Jenkins, Docker e Kubernetes para acelerar entregas. E como <strong>Cloud Engineer</strong>, projeto e opero infraestrutura em AWS, Azure e GCP para garantir escalabilidade e segurança.</p>
-        <p id="analogy-text2">Esta combinação me permite não apenas construir sistemas robustos, mas também garantir que eles sejam entregues rapidamente e operem com confiabilidade em ambientes cloud.</p>
+        <div class="analogy-content" id="analogy-text1">
+          Na minha trajetória, essas funções se complementam. Como <strong>SRE</strong>, garanto que os sistemas estejam confiáveis através de monitoramento proativo com Grafana, Loki e Zabbix. Como <strong>DevOps</strong>, implemento automação com Jenkins, Docker e Kubernetes para acelerar entregas. E como <strong>Cloud Engineer</strong>, projeto e opero infraestrutura em AWS, Azure e GCP para garantir escalabilidade e segurança.
+        </div>
+        <div class="analogy-content" id="analogy-text2">
+          Esta combinação me permite não apenas construir sistemas robustos, mas também garantir que eles sejam entregues rapidamente e operem com confiabilidade em ambientes cloud.
+        </div>
       </div>
     </section>
 
@@ -1727,7 +1748,12 @@
         for (const [key, value] of Object.entries(langData)) {
           const element = document.getElementById(key);
           if (element) {
-            element.textContent = value;
+            // Verifica se é HTML (contém tags <strong>)
+            if (typeof value === 'string' && value.includes('<strong>')) {
+              element.innerHTML = value;
+            } else {
+              element.textContent = value;
+            }
           }
         }
         
