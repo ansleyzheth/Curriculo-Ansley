@@ -9,11 +9,59 @@ const updateLanguage = (language) => {
   document.documentElement.lang = language === "pt" ? "pt-BR" : language;
   document.querySelectorAll("[data-i18n]").forEach((element) => { if (content[element.dataset.i18n]) element.innerHTML = content[element.dataset.i18n]; });
   document.querySelectorAll(".language-button").forEach((button) => button.classList.toggle("is-active", button.dataset.lang === language));
+  const resumes = { pt: "Curriculo_Ansley_Donizeti_Gonçalves.pdf", en: "eng-Curriulo-Ansley.pdf", es: "es-Curriculum-Ansley.pdf" };
+  const profileLink = document.querySelector(".button-quiet");
+  if (profileLink) {
+    profileLink.href = `assets/documents/${resumes[language]}`;
+    profileLink.target = "_blank";
+  }
   localStorage.setItem("portfolio-language", language);
 };
 document.querySelectorAll(".language-button").forEach((button) => button.addEventListener("click", () => updateLanguage(button.dataset.lang)));
 updateLanguage(localStorage.getItem("portfolio-language") || "pt");
 document.querySelectorAll('a[href*="O2B"]').forEach((link) => { link.setAttribute("href", "assets/documents/Carta de Recomendaco O2B - Ansley.pdf"); });
+document.querySelectorAll('a[href*="linkedin.com"]').forEach((link) => { link.href = "https://www.linkedin.com/in/ansley-donizeti-goncalves/"; });
+
+const toolsByCard = [
+  [
+    ["Grafana", "grafana-icon.png", "Dashboards para visualizar métricas e a saúde dos sistemas."],
+    ["Prometheus", "prometheus-icon.png", "Coleta métricas e dispara alertas sobre serviços e infraestrutura."],
+    ["Zabbix", "grafana-icon.png", "Monitora servidores, redes e aplicações com alertas operacionais."],
+    ["Loki", "grafana-icon.png", "Centraliza logs de aplicações e infraestrutura para investigação de incidentes."]
+  ],
+  [
+    ["AWS", "aws-icon.png", "Serviços de computação, rede e armazenamento em cloud."],
+    ["Azure", "azure-icon.png", "Plataforma cloud Microsoft para operar ambientes escaláveis."],
+    ["GCP", "gcp-icon.png", "Serviços de infraestrutura e dados da Google Cloud."],
+    ["Linux", "linux-icon.png", "Sistema operacional base para servidores, automação e containers."],
+    ["PostgreSQL", "postgres-icon.png", "Banco de dados relacional para aplicações e operações críticas."]
+  ],
+  [
+    ["Docker", "docker-icon.png", "Empacota aplicações em containers reproduzíveis."],
+    ["Kubernetes", "kubernetes-icon.png", "Orquestra containers, escala workloads e mantém serviços disponíveis."],
+    ["Jenkins", "jenkins-icon.png", "Automatiza pipelines de integração e entrega contínua."],
+    ["Terraform", "terraform-icon.png", "Provisiona infraestrutura usando código declarativo."],
+    ["Git", "git-icon.png", "Versionamento de código e colaboração entre times."],
+    ["GitHub", "git-icon.png", "Hospedagem de código, pull requests e colaboração de software."],
+    ["ArgoCD", "argo-icon.png", "Entrega contínua baseada em GitOps para Kubernetes."],
+    ["Shell Script", "linux-icon.png", "Automação de tarefas e rotinas operacionais em Linux."],
+    ["Ansible", "ansible-icon.png", "Automação de configuração e provisionamento de servidores."]
+  ]
+];
+
+document.querySelectorAll(".focus-card .tag-row").forEach((row, cardIndex) => {
+  row.innerHTML = toolsByCard[cardIndex].map(([name, icon, description]) => `<span class="tool-chip" title="${description}"><img src="assets/images/${icon}" alt="${name}"><span>${name}</span><span class="tool-tip">${description}</span></span>`).join("");
+});
+
+const toolStrip = document.querySelector(".tool-strip");
+if (toolStrip) {
+  toolStrip.remove();
+}
+
+const aboutSection = document.querySelector("#sobre");
+if (aboutSection) {
+  aboutSection.insertAdjacentHTML("afterend", `<section class="roles-section" id="atuacao"><div class="section-heading section-grid"><div class="section-label"><span>03</span><span>Como atuo</span></div><div><h2>SRE, DevOps e Cloud na prática.</h2><p>Três perspectivas que se complementam para construir, entregar e manter plataformas confiáveis.</p></div></div><div class="roles-grid"><article class="role-card"><div class="role-visual"><img src="assets/images/SRE.jpg" alt="SRE"><span>01</span></div><h3>SRE</h3><p>Confiabilidade como disciplina: sistemas observáveis, resilientes e preparados para operar em produção.</p><ul><li>SLIs, SLOs e alertas</li><li>Observabilidade e incidentes</li><li>Redução de trabalho repetitivo</li></ul><div class="role-tools">Grafana · Prometheus · Loki · Zabbix</div></article><article class="role-card"><div class="role-visual"><img src="assets/images/DevOps.jpg" alt="DevOps"><span>02</span></div><h3>DevOps Engineer</h3><p>O elo entre desenvolvimento e operações, criando um fluxo seguro e automatizado para entregar valor.</p><ul><li>CI/CD e automação</li><li>Containers e GitOps</li><li>Infrastructure as Code</li></ul><div class="role-tools">Jenkins · Docker · Kubernetes · Terraform</div></article><article class="role-card"><div class="role-visual"><img src="assets/images/Cloud-Enginieer.png" alt="Cloud Engineer"><span>03</span></div><h3>Cloud Engineer</h3><p>Infraestrutura cloud escalável e segura, com visão de custo, performance, disponibilidade e crescimento.</p><ul><li>AWS, Azure e GCP</li><li>Ambientes híbridos</li><li>Segurança e continuidade</li></ul><div class="role-tools">AWS · Azure · GCP · Linux</div></article></div><div class="roles-note"><strong>Na prática:</strong> essas funções trabalham juntas para transformar infraestrutura em uma plataforma confiável para o negócio.</div></section>`);
+}
 
 const recommendationFiles = {
   "Security First": "Carta de Recomendação SecurituFirst - Ansley.pdf",
