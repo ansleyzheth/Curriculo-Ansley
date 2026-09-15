@@ -91,7 +91,75 @@ if (aboutSection) {
   aboutSection.insertAdjacentHTML("afterend", `<section class="roles-section" id="atuacao"><div class="section-heading section-grid"><div class="section-label"><span>03</span><span>Como atuo</span></div><div><h2>SRE, DevOps e Cloud na prática.</h2><p>Três perspectivas que se complementam para construir, entregar e manter plataformas confiáveis.</p></div></div><div class="roles-grid"><article class="role-card"><div class="role-visual"><img src="assets/images/SRE.jpg" alt="SRE"><span>01</span></div><h3>SRE</h3><p>Confiabilidade como disciplina: sistemas observáveis, resilientes e preparados para operar em produção.</p><ul><li>SLIs, SLOs e alertas</li><li>Observabilidade e incidentes</li><li>Redução de trabalho repetitivo</li></ul><div class="role-tools">Grafana · Prometheus · Loki · Zabbix</div></article><article class="role-card"><div class="role-visual"><img src="assets/images/DevOps.jpg" alt="DevOps"><span>02</span></div><h3>DevOps Engineer</h3><p>O elo entre desenvolvimento e operações, criando um fluxo seguro e automatizado para entregar valor.</p><ul><li>CI/CD e automação</li><li>Containers e GitOps</li><li>Infrastructure as Code</li></ul><div class="role-tools">Jenkins · Docker · Kubernetes · Terraform</div></article><article class="role-card"><div class="role-visual"><img src="assets/images/Cloud-Enginieer.png" alt="Cloud Engineer"><span>03</span></div><h3>Cloud Engineer</h3><p>Infraestrutura cloud escalável e segura, com visão de custo, performance, disponibilidade e crescimento.</p><ul><li>AWS, Azure e GCP</li><li>Ambientes híbridos</li><li>Segurança e continuidade</li></ul><div class="role-tools">AWS · Azure · GCP · Linux</div></article></div><div class="roles-note"><strong>Na prática:</strong> essas funções trabalham juntas para transformar infraestrutura em uma plataforma confiável para o negócio.</div></section>`);
 }
 
+const rolesTranslations = {
+  pt: {
+    label: "Como atuo", title: "SRE, DevOps e Cloud na prática.", intro: "Três perspectivas que se complementam para construir, entregar e manter plataformas confiáveis.", noteLabel: "Na prática:", note: "essas funções trabalham juntas para transformar infraestrutura em uma plataforma confiável para o negócio.", cards: [
+      ["SRE", "Confiabilidade como disciplina: sistemas observáveis, resilientes e preparados para operar em produção.", ["SLIs, SLOs e alertas", "Observabilidade e incidentes", "Redução de trabalho repetitivo"], "Grafana · Prometheus · Loki · Zabbix"],
+      ["DevOps Engineer", "O elo entre desenvolvimento e operações, criando um fluxo seguro e automatizado para entregar valor.", ["CI/CD e automação", "Containers e GitOps", "Infrastructure as Code"], "Jenkins · Docker · Kubernetes · Terraform"],
+      ["Cloud Engineer", "Infraestrutura cloud escalável e segura, com visão de custo, performance, disponibilidade e crescimento.", ["AWS, Azure e GCP", "Ambientes híbridos", "Segurança e continuidade"], "AWS · Azure · GCP · Linux"]
+    ]
+  },
+  en: {
+    label: "How I work", title: "SRE, DevOps and Cloud in practice.", intro: "Three perspectives that come together to build, deliver and maintain reliable platforms.", noteLabel: "In practice:", note: "these roles work together to turn infrastructure into a reliable platform for the business.", cards: [
+      ["SRE", "Reliability as a discipline: observable, resilient systems prepared to operate in production.", ["SLIs, SLOs and alerts", "Observability and incidents", "Reducing repetitive work"], "Grafana · Prometheus · Loki · Zabbix"],
+      ["DevOps Engineer", "The bridge between development and operations, creating a secure and automated flow to deliver value.", ["CI/CD and automation", "Containers and GitOps", "Infrastructure as Code"], "Jenkins · Docker · Kubernetes · Terraform"],
+      ["Cloud Engineer", "Scalable and secure cloud infrastructure with a focus on cost, performance, availability and growth.", ["AWS, Azure and GCP", "Hybrid environments", "Security and continuity"], "AWS · Azure · GCP · Linux"]
+    ]
+  },
+  es: {
+    label: "Cómo trabajo", title: "SRE, DevOps y Cloud en la práctica.", intro: "Tres perspectivas que se complementan para construir, entregar y mantener plataformas confiables.", noteLabel: "En la práctica:", note: "estas funciones trabajan juntas para transformar la infraestructura en una plataforma confiable para el negocio.", cards: [
+      ["SRE", "La confiabilidad como disciplina: sistemas observables y resilientes preparados para operar en producción.", ["SLIs, SLOs y alertas", "Observabilidad e incidentes", "Reducción del trabajo repetitivo"], "Grafana · Prometheus · Loki · Zabbix"],
+      ["DevOps Engineer", "El puente entre desarrollo y operaciones, creando un flujo seguro y automatizado para entregar valor.", ["CI/CD y automatización", "Contenedores y GitOps", "Infrastructure as Code"], "Jenkins · Docker · Kubernetes · Terraform"],
+      ["Cloud Engineer", "Infraestructura cloud escalable y segura, con foco en costo, rendimiento, disponibilidad y crecimiento.", ["AWS, Azure y GCP", "Entornos híbridos", "Seguridad y continuidad"], "AWS · Azure · GCP · Linux"]
+    ]
+  }
+};
+
+const updateRolesLanguage = (language) => {
+  const content = rolesTranslations[language] || rolesTranslations.pt;
+  const section = document.querySelector("#atuacao");
+  if (!section) return;
+  section.querySelector(".section-label span:last-child").textContent = content.label;
+  section.querySelector("h2").textContent = content.title;
+  section.querySelector(".section-heading p").textContent = content.intro;
+  section.querySelectorAll(".role-card").forEach((card, index) => {
+    const [title, description, responsibilities, tools] = content.cards[index];
+    card.querySelector("h3").textContent = title;
+    card.querySelector("p").textContent = description;
+    card.querySelectorAll("li").forEach((item, itemIndex) => { item.textContent = responsibilities[itemIndex]; });
+    card.querySelector(".role-tools").textContent = tools;
+  });
+  section.querySelector(".roles-note strong").textContent = content.noteLabel;
+  section.querySelector(".roles-note").lastChild.textContent = ` ${content.note}`;
+};
+
+document.querySelectorAll(".language-button").forEach((button) => button.addEventListener("click", () => updateRolesLanguage(button.dataset.lang)));
+updateRolesLanguage(localStorage.getItem("portfolio-language") || "pt");
+
+const timeline = document.querySelector(".timeline");
+if (timeline && !timeline.querySelector("[data-company='Digytec']")) {
+  timeline.insertAdjacentHTML("afterbegin", `<article class="timeline-item current" data-company="Digytec"><div class="timeline-date">set/2026 – atual</div><div class="timeline-body"><div class="company-line"><img src="assets/images/Digytec-logo.png" alt="Digytec"><div><h3>Digytec</h3><p>Analista N2</p></div></div><p>Atuação na administração e sustentação de redes, servidores on-premise e ambientes cloud. Responsável por firewall, rotinas de backup, Microsoft 365 e apoio às operações de SOC/NOC, contribuindo para a disponibilidade, segurança e continuidade dos serviços.</p><div class="tag-row"><span>Redes</span><span>Servidores</span><span>Cloud</span><span>Firewall</span><span>Backups</span><span>Microsoft 365</span><span>SOC / NOC</span></div></div></article>`);
+}
+
+const digytecTranslations = {
+  pt: { role: "Analista N2", description: "Atuação na administração e sustentação de redes, servidores on-premise e ambientes cloud. Responsável por firewall, rotinas de backup, Microsoft 365 e apoio às operações de SOC/NOC, contribuindo para a disponibilidade, segurança e continuidade dos serviços." },
+  en: { role: "N2 Analyst", description: "Responsible for administering and supporting networks, on-premise servers and cloud environments. Managing firewalls, backup routines, Microsoft 365 and supporting SOC/NOC operations, contributing to service availability, security and continuity." },
+  es: { role: "Analista N2", description: "Responsable de la administración y soporte de redes, servidores on-premise y entornos cloud. Gestión de firewalls, rutinas de backup, Microsoft 365 y apoyo a las operaciones SOC/NOC, contribuyendo a la disponibilidad, seguridad y continuidad de los servicios." }
+};
+
+const updateDigytecLanguage = (language) => {
+  const content = digytecTranslations[language] || digytecTranslations.pt;
+  const item = document.querySelector("[data-company='Digytec']");
+  if (!item) return;
+  item.querySelector(".company-line p").textContent = content.role;
+  item.querySelector(".timeline-body > p").textContent = content.description;
+};
+
+document.querySelectorAll(".language-button").forEach((button) => button.addEventListener("click", () => updateDigytecLanguage(button.dataset.lang)));
+updateDigytecLanguage(localStorage.getItem("portfolio-language") || "pt");
+
 const experienceDates = {
+  Digytec: "set/2026 – atual",
   Aliare: "fev/2023 – set/2026",
   "Security First": "set/2022 – fev/2023",
   O2B: "abr/2020 – out/2022",
@@ -106,11 +174,62 @@ document.querySelectorAll(".timeline-item").forEach((item) => {
   const company = item.querySelector("h3")?.textContent.trim();
   if (experienceDates[company]) {
     item.querySelector(".timeline-date").textContent = experienceDates[company];
-    item.classList.toggle("current", company === "Aliare");
+    item.classList.toggle("current", company === "Digytec");
   }
 });
 
+const experienceTranslations = {
+  pt: {
+    Digytec: ["Analista N2", "Atuação na administração e sustentação de redes, servidores on-premise e ambientes cloud. Responsável por firewall, rotinas de backup, Microsoft 365 e apoio às operações de SOC/NOC, contribuindo para a disponibilidade, segurança e continuidade dos serviços."],
+    Aliare: ["Analista de Configuração / SRE", "Gerenciamento de servidores em cluster, containers com Docker, observabilidade com Grafana, Loki, Promtail e Zabbix, bancos Oracle e PostgreSQL, Azure e automação com Shell e Jenkins."],
+    "Security First": ["Analista Cloud Junior", "Atuação em ambientes cloud e on-premise, clusters Proxmox, servidores Linux, automação e observabilidade com Grafana, Zabbix, New Relic, Datadog e Dynatrace."],
+    O2B: ["Analista Cloud Júnior", "Instalação, configuração e monitoramento de servidores em AWS e GCP, com Zabbix, Grafana, Git, Docker, Kubernetes e Rancher."],
+    "Enjin Honda": ["Gerente de TI", "Responsável pelo suporte técnico, infraestrutura de rede e servidores, manutenção de máquinas, sistemas internos e bancos de dados."],
+    BrasCloud: ["Administrativo de Sistemas I", "Administração de sistemas e infraestrutura de rede, manutenção e configuração de servidores, suporte técnico a usuários e resolução de incidentes."],
+    "Toyota / Zeni Motors": ["Assistente de TI", "Suporte técnico, manutenção de estações de trabalho, configuração de computadores, Linux, Windows, FTP, Apache e conceitos de redes."],
+    Copyvic: ["Auxiliar Técnico de Manutenção de Copiadoras", "Manutenção e suporte técnico de impressoras e copiadoras, incluindo diagnóstico, reparo, configuração de equipamentos e suporte básico de redes."],
+    Mascarello: ["Analista de Suporte de TI", "Manutenção física de equipamentos, formatação e configuração de computadores, troca de peças, manutenção de impressoras e atendimento presencial." ]
+  },
+  en: {
+    Digytec: ["N2 Analyst", "Responsible for administering and supporting networks, on-premise servers and cloud environments. Managing firewalls, backup routines, Microsoft 365 and supporting SOC/NOC operations, contributing to service availability, security and continuity."],
+    Aliare: ["Configuration Analyst / SRE", "Managed clustered servers and Docker containers, with observability through Grafana, Loki, Promtail and Zabbix, Oracle and PostgreSQL databases, Azure and automation with Shell and Jenkins."],
+    "Security First": ["Cloud Analyst Junior", "Worked across cloud and on-premise environments, Proxmox clusters and Linux servers, with automation and observability using Grafana, Zabbix, New Relic, Datadog and Dynatrace."],
+    O2B: ["Cloud Analyst Junior", "Installed, configured and monitored AWS and GCP servers using Zabbix, Grafana, Git, Docker, Kubernetes and Rancher."],
+    "Enjin Honda": ["IT Manager", "Responsible for technical support, network and server infrastructure, workstation maintenance, internal systems and databases."],
+    BrasCloud: ["Systems Administrator I", "Administered systems and network infrastructure, maintained and configured servers, provided user support and resolved incidents."],
+    "Toyota / Zeni Motors": ["IT Assistant", "Provided technical support, maintained workstations, configured computers and worked with Linux, Windows, FTP, Apache and networking fundamentals."],
+    Copyvic: ["Copier Maintenance Technician", "Provided maintenance and technical support for printers and copiers, including equipment diagnosis, repair, configuration and basic network support."],
+    Mascarello: ["IT Support Analyst", "Handled physical equipment maintenance, computer formatting and configuration, part replacement, printer maintenance and on-site user support."]
+  },
+  es: {
+    Digytec: ["Analista N2", "Responsable de la administración y soporte de redes, servidores on-premise y entornos cloud. Gestión de firewalls, rutinas de backup, Microsoft 365 y apoyo a las operaciones SOC/NOC, contribuyendo a la disponibilidad, seguridad y continuidad de los servicios."],
+    Aliare: ["Analista de Configuración / SRE", "Gestión de servidores en clúster y contenedores Docker, con observabilidad mediante Grafana, Loki, Promtail y Zabbix, bases Oracle y PostgreSQL, Azure y automatización con Shell y Jenkins."],
+    "Security First": ["Analista Cloud Junior", "Trabajo en entornos cloud y on-premise, clusters Proxmox y servidores Linux, con automatización y observabilidad mediante Grafana, Zabbix, New Relic, Datadog y Dynatrace."],
+    O2B: ["Analista Cloud Junior", "Instalación, configuración y monitoreo de servidores AWS y GCP con Zabbix, Grafana, Git, Docker, Kubernetes y Rancher."],
+    "Enjin Honda": ["Gerente de TI", "Responsable del soporte técnico, infraestructura de red y servidores, mantenimiento de equipos, sistemas internos y bases de datos."],
+    BrasCloud: ["Administrador de Sistemas I", "Administración de sistemas e infraestructura de red, mantenimiento y configuración de servidores, soporte técnico a usuarios y resolución de incidentes."],
+    "Toyota / Zeni Motors": ["Asistente de TI", "Soporte técnico, mantenimiento de estaciones de trabajo, configuración de computadoras, Linux, Windows, FTP, Apache y fundamentos de redes."],
+    Copyvic: ["Técnico de Mantenimiento de Copiadoras", "Mantenimiento y soporte técnico de impresoras y copiadoras, incluyendo diagnóstico, reparación, configuración de equipos y soporte básico de redes."],
+    Mascarello: ["Analista de Soporte de TI", "Mantenimiento físico de equipos, formateo y configuración de computadoras, cambio de piezas, mantenimiento de impresoras y soporte presencial."]
+  }
+};
+
+const updateExperienceLanguage = (language) => {
+  const content = experienceTranslations[language] || experienceTranslations.pt;
+  document.querySelectorAll(".timeline-item").forEach((item) => {
+    const company = item.querySelector("h3")?.textContent.trim();
+    const translation = content[company];
+    if (!translation) return;
+    item.querySelector(".company-line p").textContent = translation[0];
+    item.querySelector(".timeline-body > p").textContent = translation[1];
+  });
+};
+
+document.querySelectorAll(".language-button").forEach((button) => button.addEventListener("click", () => updateExperienceLanguage(button.dataset.lang)));
+updateExperienceLanguage(localStorage.getItem("portfolio-language") || "pt");
+
 const recommendationFiles = {
+  Aliare: "Carta de Recomendação Aliare - Ansley.pdf",
   "Security First": "Carta de Recomendação SecurituFirst - Ansley.pdf",
   O2B: "Carta de Recomendaco O2B - Ansley.pdf",
   "Enjin Honda": "Carta de Recomendação Enjin Honda - Ansley.pdf",
