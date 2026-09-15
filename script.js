@@ -32,10 +32,19 @@ const playPortraitVideo = () => {
   portraitFrame.classList.add("is-playing");
   portraitVideo.play().catch(() => portraitFrame.classList.remove("is-playing"));
 };
-portraitFrame?.addEventListener("mouseenter", playPortraitVideo);
-portraitFrame?.addEventListener("mouseleave", stopPortraitVideo);
+const supportsHover = window.matchMedia("(hover: hover)").matches;
+if (supportsHover) {
+  portraitFrame?.addEventListener("mouseenter", playPortraitVideo);
+  portraitFrame?.addEventListener("mouseleave", stopPortraitVideo);
+}
 portraitFrame?.addEventListener("focusin", playPortraitVideo);
 portraitFrame?.addEventListener("focusout", stopPortraitVideo);
+portraitFrame?.addEventListener("click", () => {
+  if (!portraitVideo) return;
+  if (portraitVideo.paused) playPortraitVideo();
+  else stopPortraitVideo();
+});
+playPortraitVideo();
 document.querySelectorAll('a[href*="O2B"]').forEach((link) => { link.setAttribute("href", "assets/documents/Carta de Recomendaco O2B - Ansley.pdf"); });
 document.querySelectorAll('a[href*="linkedin.com"]').forEach((link) => { link.href = "https://www.linkedin.com/in/ansley-donizeti-goncalves/"; });
 
