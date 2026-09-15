@@ -9,6 +9,7 @@ const updateLanguage = (language) => {
   document.documentElement.lang = language === "pt" ? "pt-BR" : language;
   document.querySelectorAll("[data-i18n]").forEach((element) => { if (content[element.dataset.i18n]) element.innerHTML = content[element.dataset.i18n]; });
   document.querySelectorAll(".language-button").forEach((button) => button.classList.toggle("is-active", button.dataset.lang === language));
+  if (typeof renderTools === "function") renderTools(language);
   const resumes = { pt: "Curriculo_Ansley_Donizeti_Gonçalves.pdf", en: "eng-Curriulo-Ansley.pdf", es: "es-Curriculum-Ansley.pdf" };
   const profileLink = document.querySelector(".button-quiet");
   if (profileLink) {
@@ -18,7 +19,6 @@ const updateLanguage = (language) => {
   localStorage.setItem("portfolio-language", language);
 };
 document.querySelectorAll(".language-button").forEach((button) => button.addEventListener("click", () => updateLanguage(button.dataset.lang)));
-updateLanguage(localStorage.getItem("portfolio-language") || "pt");
 document.querySelectorAll('a[href*="O2B"]').forEach((link) => { link.setAttribute("href", "assets/documents/Carta de Recomendaco O2B - Ansley.pdf"); });
 document.querySelectorAll('a[href*="linkedin.com"]').forEach((link) => { link.href = "https://www.linkedin.com/in/ansley-donizeti-goncalves/"; });
 
@@ -49,19 +49,66 @@ const toolsByCard = [
   ]
 ];
 
-document.querySelectorAll(".focus-card .tag-row").forEach((row, cardIndex) => {
-  row.innerHTML = toolsByCard[cardIndex].map(([name, icon, description]) => `<span class="tool-chip" title="${description}"><img src="assets/images/${icon}" alt="${name}"><span>${name}</span><span class="tool-tip">${description}</span></span>`).join("");
+const toolDescriptions = {
+  pt: {
+    Grafana: "Dashboards para visualizar métricas e a saúde dos sistemas.", Prometheus: "Coleta métricas e dispara alertas sobre serviços e infraestrutura.", Zabbix: "Monitora servidores, redes e aplicações com alertas operacionais.", Loki: "Centraliza logs de aplicações e infraestrutura para investigação de incidentes.", AWS: "Serviços de computação, rede e armazenamento em cloud.", Azure: "Plataforma cloud Microsoft para operar ambientes escaláveis.", GCP: "Serviços de infraestrutura e dados da Google Cloud.", Linux: "Sistema operacional base para servidores, automação e containers.", PostgreSQL: "Banco de dados relacional para aplicações e operações críticas.", Docker: "Empacota aplicações em containers reproduzíveis.", Kubernetes: "Orquestra containers, escala workloads e mantém serviços disponíveis.", Jenkins: "Automatiza pipelines de integração e entrega contínua.", Terraform: "Provisiona infraestrutura usando código declarativo.", Git: "Versionamento de código e colaboração entre times.", GitHub: "Hospedagem de código, pull requests e colaboração de software.", ArgoCD: "Entrega contínua baseada em GitOps para Kubernetes.", "Shell Script": "Automação de tarefas e rotinas operacionais em Linux.", Ansible: "Automação de configuração e provisionamento de servidores."
+  },
+  en: {
+    Grafana: "Dashboards to visualize metrics and system health.", Prometheus: "Collects metrics and triggers alerts for services and infrastructure.", Zabbix: "Monitors servers, networks and applications with operational alerts.", Loki: "Centralizes application and infrastructure logs for incident investigation.", AWS: "Cloud computing, networking and storage services.", Azure: "Microsoft cloud platform for operating scalable environments.", GCP: "Google Cloud infrastructure and data services.", Linux: "Server operating system for automation and containers.", PostgreSQL: "Relational database for applications and critical operations.", Docker: "Packages applications into reproducible containers.", Kubernetes: "Orchestrates containers, scales workloads and keeps services available.", Jenkins: "Automates continuous integration and delivery pipelines.", Terraform: "Provisions infrastructure using declarative code.", Git: "Code versioning and collaboration across teams.", GitHub: "Code hosting, pull requests and software collaboration.", ArgoCD: "GitOps-based continuous delivery for Kubernetes.", "Shell Script": "Automates tasks and operational routines on Linux.", Ansible: "Automates server configuration and provisioning."
+  },
+  es: {
+    Grafana: "Paneles para visualizar métricas y la salud de los sistemas.", Prometheus: "Recopila métricas y activa alertas para servicios e infraestructura.", Zabbix: "Monitorea servidores, redes y aplicaciones con alertas operativas.", Loki: "Centraliza logs de aplicaciones e infraestructura para investigar incidentes.", AWS: "Servicios cloud de computación, red y almacenamiento.", Azure: "Plataforma cloud de Microsoft para operar entornos escalables.", GCP: "Servicios de infraestructura y datos de Google Cloud.", Linux: "Sistema operativo para servidores, automatización y contenedores.", PostgreSQL: "Base de datos relacional para aplicaciones y operaciones críticas.", Docker: "Empaqueta aplicaciones en contenedores reproducibles.", Kubernetes: "Orquesta contenedores, escala cargas y mantiene servicios disponibles.", Jenkins: "Automatiza pipelines de integración y entrega continua.", Terraform: "Proporciona infraestructura mediante código declarativo.", Git: "Control de versiones y colaboración entre equipos.", GitHub: "Alojamiento de código, pull requests y colaboración de software.", ArgoCD: "Entrega continua basada en GitOps para Kubernetes.", "Shell Script": "Automatiza tareas y rutinas operativas en Linux.", Ansible: "Automatiza la configuración y el aprovisionamiento de servidores."
+  }
+};
+
+const renderTools = (language) => document.querySelectorAll(".focus-card .tag-row").forEach((row, cardIndex) => {
+  const descriptions = toolDescriptions[language] || toolDescriptions.pt;
+  row.innerHTML = toolsByCard[cardIndex].map(([name, icon]) => `<span class="tool-chip" title="${descriptions[name]}"><img src="assets/images/${icon}" alt="${name}"><span>${name}</span><span class="tool-tip">${descriptions[name]}</span></span>`).join("");
 });
+
+const selectedLanguage = localStorage.getItem("portfolio-language") || "pt";
+renderTools(selectedLanguage);
+updateLanguage(selectedLanguage);
 
 const toolStrip = document.querySelector(".tool-strip");
 if (toolStrip) {
   toolStrip.remove();
 }
 
+document.querySelector(".brand")?.replaceChildren(document.createTextNode("Ansley"));
+document.querySelector(".signature")?.remove();
+const contactSection = document.querySelector(".contact-section");
+const contactLinks = contactSection?.querySelector(".contact-links");
+const downloadRow = contactSection?.querySelector(".download-row");
+if (contactSection && contactLinks && downloadRow) {
+  const contactActions = document.createElement("div");
+  contactActions.className = "contact-actions";
+  contactSection.insertBefore(contactActions, contactLinks);
+  contactActions.append(contactLinks, downloadRow);
+}
 const aboutSection = document.querySelector("#sobre");
 if (aboutSection) {
   aboutSection.insertAdjacentHTML("afterend", `<section class="roles-section" id="atuacao"><div class="section-heading section-grid"><div class="section-label"><span>03</span><span>Como atuo</span></div><div><h2>SRE, DevOps e Cloud na prática.</h2><p>Três perspectivas que se complementam para construir, entregar e manter plataformas confiáveis.</p></div></div><div class="roles-grid"><article class="role-card"><div class="role-visual"><img src="assets/images/SRE.jpg" alt="SRE"><span>01</span></div><h3>SRE</h3><p>Confiabilidade como disciplina: sistemas observáveis, resilientes e preparados para operar em produção.</p><ul><li>SLIs, SLOs e alertas</li><li>Observabilidade e incidentes</li><li>Redução de trabalho repetitivo</li></ul><div class="role-tools">Grafana · Prometheus · Loki · Zabbix</div></article><article class="role-card"><div class="role-visual"><img src="assets/images/DevOps.jpg" alt="DevOps"><span>02</span></div><h3>DevOps Engineer</h3><p>O elo entre desenvolvimento e operações, criando um fluxo seguro e automatizado para entregar valor.</p><ul><li>CI/CD e automação</li><li>Containers e GitOps</li><li>Infrastructure as Code</li></ul><div class="role-tools">Jenkins · Docker · Kubernetes · Terraform</div></article><article class="role-card"><div class="role-visual"><img src="assets/images/Cloud-Enginieer.png" alt="Cloud Engineer"><span>03</span></div><h3>Cloud Engineer</h3><p>Infraestrutura cloud escalável e segura, com visão de custo, performance, disponibilidade e crescimento.</p><ul><li>AWS, Azure e GCP</li><li>Ambientes híbridos</li><li>Segurança e continuidade</li></ul><div class="role-tools">AWS · Azure · GCP · Linux</div></article></div><div class="roles-note"><strong>Na prática:</strong> essas funções trabalham juntas para transformar infraestrutura em uma plataforma confiável para o negócio.</div></section>`);
 }
+
+const experienceDates = {
+  Aliare: "fev/2023 – set/2026",
+  "Security First": "set/2022 – fev/2023",
+  O2B: "abr/2020 – out/2022",
+  "Enjin Honda": "ago/2019 – mar/2020",
+  BrasCloud: "mai/2019 – ago/2019",
+  "Toyota / Zeni Motors": "jul/2017 – abr/2019",
+  Copyvic: "out/2015 – jun/2016",
+  Mascarello: "abr/2015 – jul/2015"
+};
+
+document.querySelectorAll(".timeline-item").forEach((item) => {
+  const company = item.querySelector("h3")?.textContent.trim();
+  if (experienceDates[company]) {
+    item.querySelector(".timeline-date").textContent = experienceDates[company];
+    item.classList.toggle("current", company === "Aliare");
+  }
+});
 
 const recommendationFiles = {
   "Security First": "Carta de Recomendação SecurituFirst - Ansley.pdf",
